@@ -1,0 +1,214 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<title>Michael Weingert</title>
+<link rel="stylesheet" type="text/css" href="style.css" media="all" />
+<link rel="stylesheet" media="all" href="style/type/puritan.css" />
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/css/ie7.css" media="all" />
+<![endif]-->
+<script type="text/javascript" src="style/js/jquery-1.5.min.js"></script>
+<script type="text/javascript" src="style/js/jquery.cycle.all.min.js"></script>
+<script type="text/javascript" src="style/js/ddsmoothmenu.js"></script>
+<script type="text/javascript" src="style/js/scripts.js"></script>
+<script type="text/javascript">
+$(function() {
+			if ($('#sliderholder-cycle').length) {
+			// timeouts per slide (in seconds) 
+			var timeouts = [5,5,5];
+			function calculateTimeout(currElement, nextElement, opts, isForward) { 
+			    var index = opts.currSlide; 
+			    return timeouts[index] * 1000;
+			}
+			jQuery('#sliderholder-cycle').cycle({
+				fx: 'fade',
+				pager: '.slidernav',
+				prev:    '.sliderprev',
+        		next:    '.slidernext',
+				speed: 1000,
+				timeoutFn: calculateTimeout,
+				pagerEvent: 'click',
+    			pauseOnPagerHover: true,
+    			cleartype: 1
+});
+			jQuery('#sliderholder-cycle').css("display", "block");
+			jQuery('.slidernav').css("display", "block");
+			
+			}
+}); 
+</script>
+</head>
+<body>
+<div id="container"> 
+    <!-- Begin Header Wrapper -->
+    <div id="page-top">
+        <div id="header-wrapper">
+            <!-- Begin Header -->
+            <div id="header">
+                <div id="logo"><a href="Mikey_Index.html"><img src="Mikey_Name.png" alt="Michael Weingert" /></a></div>
+                <!-- Logo -->
+                <!-- Begin Menu -->
+                <div id="menu-wrapper">
+                    <div id="smoothmenu1" class="ddsmoothmenu">
+                        <ul>
+                            <li><a href="Mikey_Index.html" class="selected">Home</a> </li>
+                            <li><a href="Mikey_Index.html">Resume</a> </li>
+                            <li><a href="Mikey_Research.html">Research</a>
+                                <ul>
+                                    <li><a href="Mikey_Papers.html">Papers</a></li>
+                                    <li><a href="Mikey_OngoingResearch.html">Ongoing Research</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="Mikey_Education.html">Education</a></li>
+                            <li><a href="Mikey_Portfolio.html">Portfolio</a>
+                                <ul>
+                                    <li><a href="https://github.com/mpweinge">Github</a></li>
+                                    <li><a href="http://ca.linkedin.com/pub/michael-weingert/51/853/525">LinkedIn</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="Mikey_Contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- End Menu -->
+            </div>
+            <!-- End Header -->
+        </div>
+    </div>
+    <!-- End Header Wrapper -->
+  
+  <!-- Begin Slider -->
+  <div id="cycle-wrapper">
+    <div id="sliderholder-cycle"> <img src="style/images/art/slider-1.jpg" width="980" height="380" />
+      <div>
+        <iframe src="http://player.vimeo.com/video/4890208?title=0&amp;byline=0&amp;portrait=0" width="980" height="380" frameborder="0"></iframe>
+      </div>
+      <img src="style/images/art/slider-2.jpg" width="980" height="380" /> </div>
+    <ul class="slidernav">
+    </ul>
+    <div class="sliderdir">
+        <a href="#" id='TESTID'><span class="sliderprev">Prev</span></a>
+        <a href="#"><span class="slidernext">Next</span></a>
+    </div>
+  </div>
+  <!-- End Slider -->  
+  
+  <!-- Begin Wrapper -->
+  <div id="wrapper"> 
+    
+    <!-- Begin Intro -->
+    <div class="intro">
+      <h1>Working hard to acheive innovative and efficient engineering solutions. </h1>
+    </div>
+    <!-- End Intro --> 
+    
+    <!-- Begin About -->
+    <div class="tab-wrapper">
+      <ul id="tab-menu">
+        <li class="selected"><img src="style/images/icon-palette.png" alt="" /> Artificial Intelligence</li>
+        <li><img src="style/images/icon-art.png" alt="" /> Mobile Development</li>
+        <li><img src="style/images/icon-laptop.png" alt="" /> Graphics Development</li>
+        <li><img src="style/images/icon-camera.png" alt="" /> Platform Development</li>
+      </ul>
+      <div class="tab-content">
+        <div class="tab show">
+          <h3>Artificial Intelligence</h3>
+          <p>Please see my research section for more information.</p>
+          <p> <img src="style/images/art/portfolio12-th.jpg" alt="" class="right"/> Stub</p>
+        </div>
+        <div class="tab">
+          <h3>Mobile Development</h3>
+          <p><img src="style/images/art/portfolio11-th.jpg" alt="" class="right"/> Stub </p>
+        </div>
+        <div class="tab">
+          <h3>Graphics Development</h3>
+          <p><img src="style/images/art/portfolio10-th.jpg" alt="" class="right"/> OpenGL</p>
+          <p> OpenCL / GLSL</p>
+        </div>
+        <div class="tab">
+          <h3>Platform Development</h3>
+          <p><img src="style/images/art/portfolio9-th.jpg" alt="" class="right"/>Objective-C on OS X </p>
+          <p> Linux, Windows Dev</p>
+        </div>
+      </div>
+    </div>
+    <div class="clear"></div>
+    <!-- End About --> 
+    
+  </div>
+  
+  <!-- End Wrapper -->
+  <div class="clearfix"></div>
+  <div class="push"></div>
+</div>
+
+    <!-- Begin Footer -->
+    <div id="footer-wrapper">
+        <div id="footer">
+            <div id="footer-content">
+                
+                <!-- Begin Copyright -->
+                <div id="copyright">
+                    <p>© Copyright 2012 | Michael Weingert</p>
+                </div>
+                <!-- End Copyright -->
+                
+                <!-- Begin Social Icons -->
+                <div id="socials">
+                    <ul>
+                        <li><a href="https://github.com/mpweinge"><img src="githublogo.png" alt="github" /></a></li>
+                        <li><a href="http://ca.linkedin.com/pub/michael-weingert/51/853/525"><img src="linkedInLogo.png" alt="linkedIn" /></a></li>
+                    </ul>
+                </div>
+                <!-- End Social Icons -->
+                
+            </div>
+        </div>
+    </div>
+    <!-- End Footer -->
+
+<script type="text/javascript">
+
+$(document).ready(function() {	
+  //Get all the LI from the #tabMenu UL
+  $('#tab-menu > li').click(function(){
+    //remove the selected class from all LI    
+    $('#tab-menu > li').removeClass('selected');
+    //Reassign the LI
+    $(this).addClass('selected');
+    //Hide all the DIV in .tab-content
+    $('.tab-content div.tab').slideUp('slow');
+    //Look for the right DIV in boxBody according to the Navigation UL index, therefore, the arrangement is very important.
+    $('.tab-content div.tab:eq(' + $('#tab-menu > li').index(this) + ')').slideDown('slow');
+  }).mouseover(function() {
+    //Add and remove class, Personally I dont think this is the right way to do it, anyone please suggest    
+    $(this).addClass('mouseover');
+    $(this).removeClass('mouseout');   
+  }).mouseout(function() {
+    //Add and remove class
+    $(this).addClass('mouseout');
+    $(this).removeClass('mouseover');    
+  });
+});
+
+$(function() {
+            var offset = $("#tab-menu").offset();
+            var topPadding = 15;
+            $(window).scroll(function() {
+                if ($(window).scrollTop() > offset.top) {
+                    $("#tab-menu").stop().animate({
+                        marginTop: $(window).scrollTop() - offset.top + topPadding
+                    });
+                } else {
+                    $("#tab-menu").stop().animate({
+                        marginTop: 0
+                    });
+                };
+            });
+        });
+  
+
+</script>
+</body>
+</html>

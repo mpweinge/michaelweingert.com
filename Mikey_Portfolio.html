@@ -74,7 +74,7 @@
   <div id="wrapper">
     <div id="portfolio"> 
       <!-- Begin Portfolio Navigation -->
-      <ul class="gallerynav">
+      <ul class="gallerynav" id ="gallerynavtitle">
         <li class="selected-1"><a href="#" data-value="all">All<span></span></a></li>
         <li><a href="#" data-value="Mobile">Mobile<span></span></a></li>
         <li><a href="#" data-value="photography">Console Games<span></span></a></li>
@@ -85,16 +85,21 @@
       <!-- Begin Portfolio Elements -->
         
         <style type="text/css">
-            .sideText
+            .rightText
             {
                 position:absolute;
-                left:600px;
+                left:60%;
                 width:400px;
                 top:240px;
                 z-index:-1;
             }
+            .leftText
+            {
+                width:400px;
+            }
             </style>
-        <p class = sideText id="PortfolioText"> Stub here about whatever was pressed.</p>
+        <p class = rightText id="PortfolioText"> Click on an image to view more information, or sort by category.</p>
+        <p class = leftText id="TopText"></p>
       <ul id="gallery" class="grid">
         <script>
             var UltrasoundText = "While working at Colibri Technologies / Sunnybrook Hospital, I worked to create a real time 3D visualization of what a heart catheter sees. Part of this task involved offloading image processing and trasnformations onto a GPU to perform the necessary calculations in real time. Technologies used include OpenGL, OpenCL, GLSL, C#, C++, C, and VHDL. ";
@@ -107,25 +112,34 @@
             var DynamicsText = "My current position, at Microsoft, is working underneath the Microsoft CRM team. Specifically, I am writing native applications (iOS and windows8), and creating infrastructure to allow communication between web, and native based components.";
         </script>
         <!-- Begin Image 1 -->
-        <li data-id="id-1" class="photography"> <a onclick = 'OnButtonClick(UltrasoundText)'> <img src="Heart_ultrasound.jpeg" alt="" /></a> </li>
+        <li data-id="id-1" class="photography"> <a onclick = 'OnButtonClick(UltrasoundText, "3D Real Time Ultrasound Viewing Application -  Data and Image pipeline", "Heart_ultrasound.jpeg")'> <img src="Heart_ultrasound.jpeg" alt="" /></a> </li>
         <!-- End Image 1 -->
         
-        <li data-id="id-2" class="illustration"> <a onclick = 'OnButtonClick(CheckersText)'> <img src="checkers.jpg" alt="" /></a> </li>
-        <li data-id="id-3" class="video"> <a onclick = 'OnButtonClick(OSText)'> <img src="RTOS.png" alt="" /></a> </li>
-        <li data-id="id-4" class="web"> <a onclick = 'OnButtonClick(SudokuText)'> <img src="Sudoku.png" alt="" /></a> </li>
-        <li data-id="id-5" class="photography"> <a onclick = 'OnButtonClick(SplinterCellText)'> <img src="SCBlacklist.jpeg" alt="" /></a> </li>
-        <li data-id="id-6" class="illustration"> <a onclick = 'OnButtonClick(ChessAIText)'> <img src="Chess-AI.jpg" alt="" /></a> </li>
-        <li data-id="id-7" class="video"> <a onclick = 'OnButtonClick(GestureText)'> <img src="touchGestures.jpg" alt="" /></a> </li>
-        <li data-id="id-15" class="photography"> <a onclick = 'OnButtonClick(DynamicsText)'> <img src="MicrosoftCRM.png" alt="" /></a> </li>
+        <li data-id="id-2" class="illustration"> <a onclick = 'OnButtonClick(CheckersText, "2 player Checkers game", "checkers.jpg")'> <img src="checkers.jpg" alt="" /></a> </li>
+          
+        <li data-id="id-3" class="video"> <a onclick = 'OnButtonClick(OSText, "Real Time Operating System", "RTOS.png")'> <img src="RTOS.png" alt="" /></a> </li>
+          
+        <li data-id="id-4" class="web"> <a onclick = 'OnButtonClick(SudokuText, "Sudoku Solver - AI", "Sudoku.png")'> <img src="Sudoku.png" alt="" /></a> </li>
+          
+        <li data-id="id-5" class="photography"> <a onclick = 'OnButtonClick(SplinterCellText, "AI Programmer - Splinter Cell Blacklist", "SCBlacklist.jpeg")'> <img src="SCBlacklist.jpeg" alt="" /></a> </li>
+          
+        <li data-id="id-6" class="illustration"> <a onclick = 'OnButtonClick(ChessAIText, "Chess AI", "Chess-AI.jpg")'> <img src="Chess-AI.jpg" alt="" /></a> </li>
+          
+        <li data-id="id-7" class="video"> <a onclick = 'OnButtonClick(GestureText, "Touch Gestures on Mobile Devices", "touchGestures.jpg")'> <img src="touchGestures.jpg" alt="" /></a> </li>
+          
+        <li data-id="id-15" class="photography"> <a onclick = 'OnButtonClick(DynamicsText, "MicrosoftCRM Mobile Development", "MicrosoftCRM.png")'> <img src="MicrosoftCRM.png" alt="" /></a> </li>
       </ul>
         
       <!-- End Portfolio Elements --> 
       <script>
-          function OnButtonClick(text)
+          function OnButtonClick(text, name, picture)
           {
               var TopText = document.getElementById('PortfolioText');
               TopText.innerHTML = text;
-              $('body,html').animate({scrollTop: findPos(container)}, 400);
+              var GalleryTitle = document.getElementById('gallerynavtitle');
+              $('body,html').animate({scrollTop: findPos(GalleryTitle)}, 400);
+              
+              document.getElementById("PortfolioText").innerHTML = "<h1>" + name + "</h1>" + "<img src=" + picture+ " WIDTH=400 HEIGHT=300 />" + "<p>" + text + "</p>";
           }
       </script>
   <!-- End Wrapper -->

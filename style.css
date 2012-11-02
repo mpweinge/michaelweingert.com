@@ -704,13 +704,13 @@ table.price td h2 sup {
 
 #cycle-wrapper {
 	position: relative;
-	width:960px;
+	width:50%;
 	height: 380px;
 	margin: 0 auto 90px;
 }
 
 #sliderholder-cycle {
-	width:960px;
+	width:100%;
 	height: 380px;
 	overflow: hidden;
 	background:transparent;

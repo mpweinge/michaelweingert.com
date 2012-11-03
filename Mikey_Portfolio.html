@@ -47,17 +47,9 @@
                             <li><a href="Mikey_Index.html">Home</a> </li>
                             <li><a href="Mikey_Index.html">Resume</a> </li>
                             <li><a href="Mikey_Research.html">Research</a>
-                                <ul>
-                                    <li><a href="Mikey_Papers.html">Papers</a></li>
-                                    <li><a href="Mikey_OngoingResearch.html">Ongoing Research</a></li>
-                                </ul>
                             </li>
                             <li><a href="Mikey_Education.html">Education</a></li>
                             <li><a href="Mikey_Portfolio.html" class="selected">Portfolio</a>
-                                <ul>
-                                    <li><a href="https://github.com/mpweinge">Github</a></li>
-                                    <li><a href="http://ca.linkedin.com/pub/michael-weingert/51/853/525">LinkedIn</a></li>
-                                </ul>
                             </li>
                             <li><a href="Mikey_Contact.html">Contact</a></li>
                         </ul>
@@ -132,7 +124,7 @@
             </ul>
         </div>
         
-        <div style="display: inline-block; width: 40%; vertical-align: top; padding-left: 50px;">
+        <div style="display: inline-block; width: 40%; vertical-align: top; padding-left: 50px;" class = "content">
             <p class = rightText id="PortfolioText"> Click on an image to view more information, or sort by category.</p>
         </div>
       <!-- End Portfolio Elements --> 
@@ -144,7 +136,7 @@
               var GalleryTitle = document.getElementById('gallerynavtitle');
               $('body,html').animate({scrollTop: findPos(GalleryTitle)}, 400);
               
-              document.getElementById("PortfolioText").innerHTML = "<h1>" + name + "</h1>" + "<img src=" + picture+ " WIDTH=400 HEIGHT=300 />" + "<p>" + text + "</p>";
+              document.getElementById("PortfolioText").innerHTML = "<h1>" + name + "</h1>" + "<img src=" + picture+ " WIDTH=350 HEIGHT=300 />" + "<p>" + text + "</p>";
           }
       </script>
   <!-- End Wrapper -->

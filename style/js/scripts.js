@@ -49,7 +49,7 @@ $(this).stop().animate({ opacity: 1.0 }, "fast");
 /*-----------------------------------------------------------------------------------*/
 $(document).ready(function(){
 //Hide the tooglebox when page load
-$(".togglebox").hide();
+//$(".togglebox").hide();
 //slide up and down when click over heading 2
 $("h2").click(function(){
 // slide toggle effect set to slow you can set it to fast too.

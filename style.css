@@ -1895,7 +1895,7 @@ h2.trigger.active {
 	width:920px;
 	height: auto;
 	background: #e8e8e8;
-	overflow: hidden;
+    overflow: hidden;
 	margin: 10px 0;
 }
 

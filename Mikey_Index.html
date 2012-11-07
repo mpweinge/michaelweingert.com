@@ -45,7 +45,7 @@ $(function() {
         <div id="header-wrapper">
             <!-- Begin Header -->
             <div id="header">
-                <div id="logo"><a href="Mikey_Index.html"><img src="Mikey_Name.png" alt="Michael Weingert" /></a></div>
+                <div id="logo" style="bottom:21px"><a href="Mikey_Index.html"><img src="Mikey_Name.png" alt="Michael Weingert" /></a></div>
                 <!-- Logo -->
                 <!-- Begin Menu -->
                 <div id="menu-wrapper">
@@ -63,6 +63,11 @@ $(function() {
                     </div>
                 </div>
                 <!-- End Menu -->
+                <p style="position:absolute; font-family:Skolar Italic, Georgia, Times New Roman, serif; font-style:italic; bottom:-15px;left:50px">
+                "Set your goals high, and don't stop till you get there." - Bo Jackson
+                </p>
+                <a href="https://github.com/mpweinge" style="bottom: 35px;position: absolute;left: 410px;"><img src="githublogo.png" alt="github" /></a></li>
+                <a href="http://ca.linkedin.com/pub/michael-weingert/51/853/525" style="bottom: 35px;position: absolute;left: 380px;"><img src="linkedInLogo.png" alt="linkedIn" /></a></li>
             </div>
             <!-- End Header -->
         </div>
@@ -198,7 +203,7 @@ $(function() {
             var offset = $("#tab-menu").offset();
             var topPadding = 15;
             $(window).scroll(function() {
-                if ($(window).scrollTop() > offset.top) {
+                if (($(window).scrollTop() > offset.top) && (($(window).scrollTop() - offset.top ) < 80)){
                     $("#tab-menu").stop().animate({
                         marginTop: $(window).scrollTop() - offset.top + topPadding
                     });

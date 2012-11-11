@@ -57,7 +57,7 @@ $(function() {
 <div id="container"> 
     <!-- Begin Header Wrapper -->
     <div id="page-top">
-        <div id="header-wrapper">
+        <div id="header-wrapper" onmouseover="$(this).css('opacity',1.0);" onmouseout="$(this).css('opacity',0.9);">
             <!-- Begin Header -->
             <div id="header">
                 <div id="logo" style="bottom:21px"><a href="Mikey_Index.html"><img src="Mikey_Name.png" alt="Michael Weingert" /></a></div>
@@ -88,22 +88,22 @@ $(function() {
         </div>
     </div>
     <!-- End Header Wrapper -->
-   </br></br>
+    </br></br>
   <!-- Begin Slider -->
     <div id="wrapper">
         <div align="center" style="width:960px; text-align:center;" >
-            <div style="float:left;width:400px; margin: 0 20px 0 0; background-color: #FFFFFF; text-align:left;" class="content">
+            <div style="float:left;width:430px; margin: 0 20px 0 0; background-color: #FFFFFF; text-align:left;" class="content">
                 <h1> Hello! </h1>
-                <p>Welcome to my site! My name is Michael Weingert, I am a fourth year Mechatronics Engineering student at the University of Waterloo in Canada. </p>
+                <p>Welcome to my site! My name is Michael Weingert, I am a third year Mechatronics Engineering student at the University of Waterloo in Canada. </p>
                 <p> I am an aspiring software engineer with a passion for Artificial Intelligence and Machine Learning. I also enjoy playing soccer, and watching movies and television. </p>
-                <p> You can see a brief synopsis of my technical interests and skills below, but feel free to navigate around my website for more indepth knowledge. You can also view my <a href = "http://ca.linkedin.com/pub/michael-weingert/51/853/525" style="text-decoration:underline">linkedIn</a> and <a href = "https://github.com/mpweinge" style="text-decoration:underline">github</a> accounts. </br>Feel free to contact me via my contact page!</p>
+                <p> You can see a brief synopsis of my technical interests and skills below, but feel free to navigate around my website for more indepth knowledge. You can also view my <a href = "http://ca.linkedin.com/pub/michael-weingert/51/853/525" style="text-decoration:underline">linkedIn</a> and <a href = "https://github.com/mpweinge" style="text-decoration:underline">github</a> accounts. </br>Feel free to contact me via my contact page.</p>
             </div>
             
-            <div id="cycle-wrapper" style = "float:left; vertical-align:top;padding-left: 20px; width:450px; height:300px;" >
-                <div id="sliderholder-cycle">
-                    <img src="Mikey_Picture.jpg" width="100%" height="100%"/>
-                    <img src="Mikey_Soccer.jpg" width="100%" height="100%" />
-                    <img src="Mikey_Presentation.jpg" width="100%" height="100%" />
+            <div id="cycle-wrapper" style = "float:left; vertical-align:top;padding-left: 20px; width:450px; height:300px; z-index:999" >
+                <div id="sliderholder-cycle" style="z-index:999">
+                    <img src="Mikey_Picture.jpg" width="100%" height="100%" style="z-index:999"/>
+                    <img src="Mikey_Soccer.jpg" width="100%" height="100%" style="z-index:999"/>
+                    <img src="Mikey_Presentation.jpg" width="100%" height="100%" style="z-index:999"/>
                 </div>
                 <ul class="slidernav">
                 </ul>
@@ -122,8 +122,10 @@ $(function() {
   
   <!-- Begin Wrapper -->
   <div id="wrapper"> 
-    <!-- End Intro --> 
-    
+    <!-- End Intro -->
+      </br></br></br>
+    <p> The age of programming just to 'get it done' is quickly being supplanted by the need to create intelligent systems that are able to dynamically adapt and learn. Achieving fast and high quality results will always be important, but we are seeing a movement to create more flexible, adaptable, reflective systems capable of learning to deal with the unknown problems of the future. I aim to be at the forefront of this new movement and to do so across all platforms, namely on the fastest growing platform, mobile devices and computing. Ubiquitious data, learning, and intelligence. These will be the pillars of computing in the near future.
+      </p>
     <!-- Begin About -->
     <div class="tab-wrapper">
       <ul id="tab-menu">

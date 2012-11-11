@@ -82,7 +82,7 @@ $(document).ready(function() {
     });
 });  
     
-    $(window).scroll(function() {
+    /*$(window).scroll(function() {
            var bar = $('#page-top');
                      console.log("Window scrolling");
            var top = bar.css('top');
@@ -91,7 +91,7 @@ $(document).ready(function() {
            } else {
                      bar.stop().animate({'top' : top}, 500);
            }
-           });
+           });*/
 
     
 </script>
@@ -100,7 +100,7 @@ $(document).ready(function() {
 <div id="container"> 
     <!-- Begin Header Wrapper -->
     <div id="page-top">
-        <div id="header-wrapper">
+         <div id="header-wrapper" onmouseover="$(this).css('opacity',1.0);" onmouseout="$(this).css('opacity',0.9);">
             <!-- Begin Header -->
             <div id="header">
                 <div id="logo" style="bottom:21px"><a href="Mikey_Index.html"><img src="Mikey_Name.png" alt="Michael Weingert" /></a></div>

@@ -505,17 +505,20 @@ table.price td h2 sup {
 }
 
 #header-wrapper {
-	min-width: 960px;
+	width: 100%;
 	height: 88px;
-	background: transparent url(style/images/header-bg.png) repeat-x center bottom;
+    position:fixed;
+    background: transparent url(style/images/header-bg.png) repeat-x center bottom;
+    background-position:0px 0px;
+    z-index:1;
 }
 
 #header {
 	width: 960px;
 	height: 88px;
 	margin: 0 auto;
-	position: relative;
-	z-index: 999;
+	position: fixed;
+	z-index: 1;
 }
 
 #page-top {
@@ -704,8 +707,7 @@ table.price td h2 sup {
 
 #cycle-wrapper {
 	position: relative;
-	width: 500px;
-	height: 340px;
+    width:40%;
 	margin: 0 auto 90px;
 }
 

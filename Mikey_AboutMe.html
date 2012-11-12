@@ -2,15 +2,41 @@
 <html lang="en-US">
 <head>
 <meta charset="UTF-8">
-<title>Michael Weingert | Education</title>
+<title>Michael Weingert</title>
 <link rel="stylesheet" type="text/css" href="style.css" media="all" />
-<link rel="stylesheet" media="all" href="style/type/puritan.css" />
 <!--[if IE 7]>
 <link rel="stylesheet" type="text/css" href="style/css/ie7.css" media="all" />
 <![endif]-->
 <script type="text/javascript" src="style/js/jquery-1.5.min.js"></script>
+<script type="text/javascript" src="style/js/jquery.cycle.all.min.js"></script>
 <script type="text/javascript" src="style/js/ddsmoothmenu.js"></script>
 <script type="text/javascript" src="style/js/scripts.js"></script>
+<script type="text/javascript">
+$(function() {
+			if ($('#sliderholder-cycle').length) {
+			// timeouts per slide (in seconds) 
+			var timeouts = [20,20,20];
+			function calculateTimeout(currElement, nextElement, opts, isForward) { 
+			    var index = opts.currSlide; 
+			    return timeouts[index] * 1000;
+			}
+			jQuery('#sliderholder-cycle').cycle({
+				fx: 'fade',
+				pager: '.slidernav',
+				prev:    '.sliderprev',
+        		next:    '.slidernext',
+				speed: 1000,
+				timeoutFn: calculateTimeout,
+				pagerEvent: 'click',
+    			pauseOnPagerHover: true,
+    			cleartype: 1
+});
+			jQuery('#sliderholder-cycle').css("display", "block");
+			jQuery('.slidernav').css("display", "block");
+			
+			}
+}); 
+</script>
     
 <script type="text/javascript">
     
@@ -24,13 +50,14 @@
      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
      })();
     
-    </script>
+</script>
+    
 </head>
 <body>
-<div id="container">
+<div id="container"> 
     <!-- Begin Header Wrapper -->
     <div id="page-top">
-         <div id="header-wrapper" onmouseover="$(this).css('opacity',1.0);" onmouseout="$(this).css('opacity',0.9);">
+        <div id="header-wrapper" onmouseover="$(this).css('opacity',1.0);" onmouseout="$(this).css('opacity',0.9);">
             <!-- Begin Header -->
             <div id="header">
                 <div id="logo" style="bottom:21px"><a href="Mikey_Index.html"><img src="Mikey_Name.png" alt="Michael Weingert" /></a></div>
@@ -40,11 +67,11 @@
                     <div id="smoothmenu1" class="ddsmoothmenu">
                         <ul>
                             <li><a href="Mikey_Index.html">Home</a> </li>
-                            <li><a href="Mikey_AboutMe.html">About Me</a></li>
+                            <li><a href="Mikey_AboutMe.html" class="selected">About Me</a></li>
                             <li><a href="Mikey_Index.html">Resume</a> </li>
                             <li><a href="Mikey_Research.html">Research</a>
                             </li>
-                            <li><a href="Mikey_Education.html" class="selected">Education</a></li>
+                            <li><a href="Mikey_Education.html">Education</a></li>
                             <li><a href="Mikey_Portfolio.html">Portfolio</a>
                             </li>
                             <li><a href="Mikey_Contact.html">Contact</a></li>
@@ -62,65 +89,58 @@
         </div>
     </div>
     <!-- End Header Wrapper -->
- </br></br>
-<!-- Begin Wrapper -->
-<div id="wrapper"> 
-  
-  <!-- Begin Content -->
-  <div class="content">
-    <h1>Education</h1>
-    <div class="one-third">
-      <p><span class="dropcap">W</span>aterloo University (class of 2014)
-        <ul>
-            <li> Major: Mechatronics Engineering
-            <li> Minor 1: Computer Science
-            <li> Minor 2: Pure Math
-                        
-        </ul>
-        </p>
-    </div>
-    <div class="one-third last">
-      <p><span class="dropcap">S</span>tanford Online Courses (2012)</p>
-        <ul>
-            <li> Introduction to Machine Learning
-            <li> Probabilistic Graphical Modelling
-            <li> Compilers
-            <li> Game Theory (in progress)
-        </ul>
-    </div>
-      <div class="one-third last">
-          <p><span class="dropcap">U</span>niversity of Western Ontario (2008-9)</p>
-          <ul>
-              <li> Introduction to Business - Taken at the Ivey School of Business while in highschool
-         </ul>
+    <div id="wrapper">
+    </br></br>
+  <!-- Begin Slider -->
+    <div id="wrapper">
+        <div align="center" style="width:960px; text-align:center;" >
+            <div style="float:left;width:430px; margin: 0 20px 0 0; background-color: #FFFFFF; text-align:left;" class="content">
+                <h1> Hello! </h1>
+                <p>Welcome to my site! My name is Michael Weingert, I am a third year Mechatronics Engineering student at the University of Waterloo in Canada. </p>
+                <p> I am an aspiring software engineer with a passion for Artificial Intelligence and Machine Learning. </p>
+                <p> You can see a brief synopsis of my technical interests and skills below, but feel free to navigate around my website for more indepth knowledge. You can also view my <a href = "http://ca.linkedin.com/pub/michael-weingert/51/853/525" style="text-decoration:underline">linkedIn</a> and <a href = "https://github.com/mpweinge" style="text-decoration:underline">github</a> accounts. </p>
+            </div>
+            
+            <div id="cycle-wrapper" style = "float:left; vertical-align:top;padding-left: 20px; width:450px; height:300px; z-index:999" >
+                <div id="sliderholder-cycle" style="z-index:999">
+                    <img src="Mikey_Picture.jpg" width="100%" height="100%" style="z-index:999"/>
+                    <img src="Mikey_Soccer.jpg" width="100%" height="100%" style="z-index:999"/>
+                    <img src="Mikey_Presentation.jpg" width="100%" height="100%" style="z-index:999"/>
+                </div>
+                <ul class="slidernav">
+                </ul>
+                
         </div>
-    <div class="clear"></div>
-    <br />
-      <h2>Skills Learned</h2>
-      <ul>
-          <li> Artificial Intelligence and Machine Learning
-          <li> Assembly, Compilers, and Low Level Programming
-          <li> Microprocessors and System Interfacing
-          <li> Autonomous Robot Design and Manufacture
-          <li> Data Structures and Algorithms
-          <li> Real Time Operating Systems
-          <li> Fundamentals of Business
-      </ul>
-    <div class="clear"></div>
-    <br />
-   
-    <p> Throughout my 4 years of post-secondary education, I have been fortunate to take a variety of courses at a variety of institutions. This has given me a wide breadth of knowledge, and allows me to consider problems from different perspectives. 
-      </p>
-      <p>I am on the deans honour list at Waterloo, and have an ~90 cumulative GPA. This was acheives by taking 7 courses most semester and two minors on top of a already challenging course load.
-      </p>
-      <p>
-        I feel confident that my diverse course load and education can be applicable and beneficial to any job.
-      </p>
+    </div>
     
-    <!-- End Content --> 
-    
+    <!--
+    <div class="sliderdir">
+        <a href="#" id='TESTID'><span class="sliderprev">Prev</span></a>
+        <a href="#"><span class="slidernext">Nexts</span></a>
+    </div> 
+     -->
   </div>
+  <!-- End Slider -->  
+  
+  <!-- Begin Wrapper -->
+  <div id="wrapper"> 
+    <!-- End Intro -->
+      </br></br></br>
+
+    <div class="clear"></div>
+    <!-- End About --> 
+
+      <!-- Begin Intro -->
+      <!--</br>
+      <div class="intro" style="padding-top:20px">
+          <h1>Working hard to achieve innovative and efficient engineering solutions. </h1>
+              </div>-->
+      
+  </div>
+  
   <!-- End Wrapper -->
+  <div class="clearfix"></div>
+  <div class="push"></div>
 </div>
 
     <!-- Begin Footer -->

@@ -514,7 +514,7 @@ table.price td h2 sup {
 }
 
 #header {
-	width: 960px;
+	width: 1030px;
 	height: 88px;
 	margin: 0 auto;
 	position: relative;
@@ -605,7 +605,7 @@ table.price td h2 sup {
 	display: inline;
 	float: left;
 	clear: none;
-	margin-left: 20px;
+	margin-left: 17px;
 	padding-left: 10px;
 }
 

@@ -57,24 +57,24 @@ $(function() {
 <div id="container"> 
     <!-- Begin Header Wrapper -->
     <div id="page-top">
-        <div id="header-wrapper" onmouseover="$(this).css('opacity',1.0);" onmouseout="$(this).css('opacity',0.9);">
+        <div id="header-wrapper">
             <!-- Begin Header -->
             <div id="header">
-                <div id="logo" style="bottom:21px"><a href="Mikey_Index.html"><img src="Mikey_Name.png" alt="Michael Weingert" /></a></div>
+                <div id="logo" style="bottom:21px"><a href="Index.html"><img src="Mikey_Name.png" alt="Michael Weingert" /></a></div>
                 <!-- Logo -->
                 <!-- Begin Menu -->
                 <div id="menu-wrapper">
                     <div id="smoothmenu1" class="ddsmoothmenu">
                         <ul>
-                            <li><a href="Mikey_Index.html">Home</a> </li>
-                            <li><a href="Mikey_AboutMe.html" class="selected">About Me</a></li>
-                            <li><a href="Mikey_Index.html">Resume</a> </li>
-                            <li><a href="Mikey_Research.html">Research</a>
+                            <li><a href="Index.html">Home</a> </li>
+                            <li><a href="AboutMe.html" class="selected">About Me</a></li>
+                            <li><a href="MichaelWeingert_Resume.pdf">Resume</a> </li>
+                            <li><a href="Research.html">Research</a>
                             </li>
-                            <li><a href="Mikey_Education.html">Education</a></li>
-                            <li><a href="Mikey_Portfolio.html">Portfolio</a>
+                            <li><a href="Education.html">Education</a></li>
+                            <li><a href="Portfolio.html">Portfolio</a>
                             </li>
-                            <li><a href="Mikey_Contact.html">Contact</a></li>
+                            <li><a href="Contact.html">Contact</a></li>
                         </ul>
                     </div>
                 </div>
@@ -94,11 +94,14 @@ $(function() {
   <!-- Begin Slider -->
     <div id="wrapper">
         <div align="center" style="width:960px; text-align:center;" >
-            <div style="float:left;width:430px; margin: 0 20px 0 0; background-color: #FFFFFF; text-align:left;" class="content">
+            <div style="float:left;width:430px; margin: 0 20px 0 0; background-color: #FFFFFF; text-align:left; height:320px;" class="content">
                 <h1> Hello! </h1>
-                <p>Welcome to my site! My name is Michael Weingert, I am a third year Mechatronics Engineering student at the University of Waterloo in Canada. </p>
+                <p>Welcome to my site! My name is Michael Weingert, I am a third year Mechatronics Engineering, Computer Science, and Pure Math student at the University of Waterloo in Canada. </p>
                 <p> I am an aspiring software engineer with a passion for Artificial Intelligence and Machine Learning. </p>
-                <p> You can see a brief synopsis of my technical interests and skills below, but feel free to navigate around my website for more indepth knowledge. You can also view my <a href = "http://ca.linkedin.com/pub/michael-weingert/51/853/525" style="text-decoration:underline">linkedIn</a> and <a href = "https://github.com/mpweinge" style="text-decoration:underline">github</a> accounts. </p>
+                <p> I've had the opportunity of working in many different software industries including medical, video games, and now business. I am currently working at Microsoft in Redmond, Washington. You can view my <a href = "http://ca.linkedin.com/pub/michael-weingert/51/853/525" style="text-decoration:underline">linkedIn</a> and <a href = "https://github.com/mpweinge" style="text-decoration:underline">github</a> accounts. </p>
+                <p>
+                    You can read about me below, or navigate around for other information.
+                </p>
             </div>
             
             <div id="cycle-wrapper" style = "float:left; vertical-align:top;padding-left: 20px; width:450px; height:300px; z-index:999" >
@@ -120,7 +123,32 @@ $(function() {
     </div> 
      -->
   </div>
-  <!-- End Slider -->  
+  <!-- End Slider -->
+        <div class="introtext">
+            <div align="center" style="width:960px; text-align:center; position:relative" >
+                <div style="width:100%; margin: 0 0px 0 0; background-color: #FFFFFF; text-align:left;" class="content">
+                    
+                    <p> Growing up in London, Ontario, I had a penchant for math at a young age. I took advanced math through Kumon and took classes at the University of Western Ontario. At my peak, I was the top Kumon student in canada for my age. While studying advanced math, I quickly grew to love the game of chess. I pursued chess for many years, travelling around Ontario for different tournaments. I reached the level of top 10 in ontario for my age. I also began to play competitive soccer and tennis. These sports have continued with me for my whole life.
+                    </p>
+                    </br>
+                    <p>
+                        When I entered the University of Waterloo, I chose to pursue two minors: Computer Science and Pure Math. Through my time at the University of Waterloo, I have had the unique opportunity of taking courses across many discipline. I am on the Dean's Honour List, play several intramural sports including soccer, ultimate frisbee, slo pitch, have represented my residence and class as a mentor for incoming first years, and as a technology representative.
+                    </p>
+                    </br>
+                    <p>
+                        I have had the opportunity to work within several different software engineering fields, including medical, video games, and now business at Microsoft. I am always looking to expand my skills, both through personal projects and work. The more I learn, the more I realize how much there is left to learn. I want to make sure education never holds me back, so I spend my time learning and exploring new technologies, ideas, and theories.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <!--
+         <div class="sliderdir">
+         <a href="#" id='TESTID'><span class="sliderprev">Prev</span></a>
+         <a href="#"><span class="slidernext">Nexts</span></a>
+         </div> 
+         -->
+    </div>
   
   <!-- Begin Wrapper -->
   <div id="wrapper"> 
@@ -138,9 +166,7 @@ $(function() {
       
   </div>
   
-  <!-- End Wrapper -->
-  <div class="clearfix"></div>
-  <div class="push"></div>
+
 </div>
 
     <!-- Begin Footer -->
@@ -154,7 +180,7 @@ $(function() {
                 </div>
                 <!-- End Copyright -->
                 
-                <!-- Begin Social Icons -->
+                <!-- Begin Social Icons -
                 <div id="socials">
                     <ul>
                         <li><a href="https://github.com/mpweinge"><img src="githublogo.png" alt="github" /></a></li>

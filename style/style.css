@@ -102,13 +102,13 @@ table {
 
  @font-face {
  font-family: 'Puritan20Italic';
- src: url('style/type/puritan/puritan_italic-webfont.eot?') format('eot'),  url('style/type/puritan/puritan_italic-webfont.woff') format('woff'),  url('style/type/puritan/puritan_italic-webfont.ttf') format('truetype'),  url('style/type/puritan/puritan_italic-webfont.svg#webfontZMWmRIPG') format('svg');
+ src: url('type/puritan/puritan_italic-webfont.eot?') format('eot'),  url('type/puritan/puritan_italic-webfont.woff') format('woff'),  url('type/puritan/puritan_italic-webfont.ttf') format('truetype'),  url('type/puritan/puritan_italic-webfont.svg#webfontZMWmRIPG') format('svg');
  font-weight: normal;
  font-style: normal;
 }
  @font-face {
  font-family: 'Puritan20Normal';
- src: url('style/type/puritan/puritan_regular-webfont.eot?') format('eot'),  url('style/type/puritan/puritan_regular-webfont.woff') format('woff'),  url('style/type/puritan/puritan_regular-webfont.ttf') format('truetype'),  url('style/type/puritan/puritan_regular-webfont.svg#webfontJ25dHiGv') format('svg');
+ src: url('type/puritan/puritan_regular-webfont.eot?') format('eot'),  url('type/puritan/puritan_regular-webfont.woff') format('woff'),  url('type/puritan/puritan_regular-webfont.ttf') format('truetype'),  url('type/puritan/puritan_regular-webfont.svg#webfontJ25dHiGv') format('svg');
  font-weight: normal;
  font-style: normal;
 }

@@ -220,7 +220,7 @@ h6 {
 }
 
 .divider, .divider2, .divider3 {
-	background: transparent url(style/images/line.png) repeat-x bottom center;
+	background: transparent url(images/line.png) repeat-x bottom center;
 	height: 2px;
 	display: block;
 	margin: 30px 0;
@@ -283,67 +283,67 @@ em {
 	background-position: right top;
 }
 .button.light-blue, .button.light-blue span {
-	background-image: url(style/images/button-light-blue.png);
+	background-image: url(images/button-light-blue.png);
 	float: left;
 }
 .button.light-purple, .button.light-purple span {
-	background-image: url(style/images/button-light-purple.png);
+	background-image: url(images/button-light-purple.png);
 	float: left;
 }
 .button.light-pink, .button.light-pink span {
-	background-image: url(style/images/button-light-pink.png);
+	background-image: url(images/button-light-pink.png);
 	float: left;
 }
 .button.light-brown, .button.light-brown span {
-	background-image: url(style/images/button-light-brown.png);
+	background-image: url(images/button-light-brown.png);
 	float: left;
 }
 .button.light-teal, .button.light-teal span {
-	background-image: url(style/images/button-light-teal.png);
+	background-image: url(images/button-light-teal.png);
 	float: left;
 }
 .button.lime, .button.lime span {
-	background-image: url(style/images/button-lime.png);
+	background-image: url(images/button-lime.png);
 	float: left;
 }
 .button.red, .button.red span {
-	background-image: url(style/images/button-red.png);
+	background-image: url(images/button-red.png);
 	float: left;
 }
 .button.orange, .button.orange span {
-	background-image: url(style/images/button-orange.png);
+	background-image: url(images/button-orange.png);
 	float: left;
 }
 .button.yellow, .button.yellow span {
-	background-image: url(style/images/button-yellow.png);
+	background-image: url(images/button-yellow.png);
 	float: left;
 }
 .button.green, .button.green span {
-	background-image: url(style/images/button-green.png);
+	background-image: url(images/button-green.png);
 	float: left;
 }
 .button.teal, .button.teal span {
-	background-image: url(style/images/button-teal.png);
+	background-image: url(images/button-teal.png);
 	float: left;
 }
 .button.turqoise, .button.turqoise span {
-	background-image: url(style/images/button-turqoise.png);
+	background-image: url(images/button-turqoise.png);
 	float: left;
 }
 .button.blue, .button.blue span {
-	background-image: url(style/images/button-blue.png);
+	background-image: url(images/button-blue.png);
 	float: left;
 }
 .button.purple, .button.purple span {
-	background-image: url(style/images/button-purple.png);
+	background-image: url(images/button-purple.png);
 	float: left;
 }
 .button.pink, .button.pink span {
-	background-image: url(style/images/button-pink.png);
+	background-image: url(images/button-pink.png);
 	float: left;
 }
 .button.gray, .button.gray span {
-	background-image: url(style/images/button-gray.png);
+	background-image: url(images/button-gray.png);
 	float: left;
 }
 
@@ -479,7 +479,7 @@ table.price td h2 sup {
 	line-height: 20px;
 	list-style: none;
 	display: block;
-	background: transparent url(style/images/bullet.jpg) no-repeat left 8px;
+	background: transparent url(images/bullet.jpg) no-repeat left 8px;
 	padding-left: 20px;
 }
 
@@ -493,7 +493,7 @@ table.price td h2 sup {
 	line-height: 20px;
 	list-style: none;
 	display: block;
-	background: transparent url(style/images/check.png) no-repeat left 0px;
+	background: transparent url(images/check.png) no-repeat left 0px;
 	padding-left: 30px;
 }
 
@@ -508,7 +508,7 @@ table.price td h2 sup {
 	width: 100%;
 	height: 88px;
     position:fixed;
-    background: transparent url(style/images/header-bg.png) repeat-x center bottom;
+    background: transparent url(images/header-bg.png) repeat-x center bottom;
     background-position:0px 0px;
     z-index:99999;
 }
@@ -546,7 +546,7 @@ table.price td h2 sup {
 #footer {
 	min-width: 960px;
 	height: 45px;
-	background: transparent url(style/images/footer-bg.png) repeat-x top center;
+	background: transparent url(images/footer-bg.png) repeat-x top center;
 }
 
 #footer-content {
@@ -751,7 +751,7 @@ table.price td h2 sup {
 	display:block;
 	width:35px;
 	height:35px;
-	background:url(style/images/slider-arrows.jpg) no-repeat;
+	background:url(images/slider-arrows.jpg) no-repeat;
 	text-indent:-9999px;
 	border:0;
 	cursor: pointer;
@@ -1068,7 +1068,7 @@ ul#tab-menu {
 }
 
 ul#tab-menu li {
-	background: transparent url(style/images/line.png) bottom repeat-x;
+	background: transparent url(images/line.png) bottom repeat-x;
 	cursor: pointer;
 	padding: 20px 10px;
 	margin: 0;
@@ -1165,13 +1165,13 @@ h2.title {
 }
 
 .top-border {
-	background: transparent url(style/images/line.png) repeat-x;
+	background: transparent url(images/line.png) repeat-x;
 	height: 2px;
 	padding: 8px 0 0 0;
 }
 
 .post .meta {
-	background: transparent url(style/images/line.png) center bottom repeat-x;
+	background: transparent url(images/line.png) center bottom repeat-x;
 	padding: 10px 0;
 	font-family: Georgia, "Times New Roman", Times, serif;
 	font-size: 12px;
@@ -1252,7 +1252,7 @@ h2.title {
 }
 
 #searchform input {
-	background: #e8e8e8 url(style/images/search.png) no-repeat 230px center;
+	background: #e8e8e8 url(images/search.png) no-repeat 230px center;
 	width: 240px;
 	padding: 5px 10px;
 	height: 25px;
@@ -1275,7 +1275,7 @@ h2.title {
 
 #wrapper .sidebox ul.post-list li {
 	background: none;
-	background: transparent url(style/images/line.png) bottom center repeat-x;
+	background: transparent url(images/line.png) bottom center repeat-x;
 	padding: 10px 0 12px 0;
 	margin: 0;
 	clear: both;
@@ -1493,7 +1493,7 @@ ul.ads {
 	line-height:20px;
 	position:relative;
 	padding:0 0 0px 20px;
-	background: transparent url(style/images/line-v.png) left repeat-y;
+	background: transparent url(images/line-v.png) left repeat-y;
 	margin: 0;
 }
 
@@ -1518,7 +1518,7 @@ ul.ads {
 	padding:20px 0 0 0;
 	margin: 18px 0 0 0;
 	background: none;
-	background: transparent url(style/images/line.png) top center repeat-x;
+	background: transparent url(images/line.png) top center repeat-x;
 	-moz-box-shadow: none;
 	-webkit-box-shadow: none;
 	box-shadow: none;
@@ -1624,7 +1624,7 @@ ul.ads {
 	width: auto;
 	position: relative;
 	z-index: 9999;
-	background: transparent url(style/images/submit.png) no-repeat;
+	background: transparent url(images/submit.png) no-repeat;
 	color: #FFF;
 	padding: 5px 12px;
 	font-size: 14px;
@@ -1749,7 +1749,7 @@ a.jbutton, a.jbutton:link, a.jbutton:visited {
 	padding: 0;
 	height: 30px;
 	width: 30px;
-	background: transparent url(style/images/gallery-arrows.jpg) no-repeat;
+	background: transparent url(images/gallery-arrows.jpg) no-repeat;
 	-moz-box-shadow: 0px 1px 2px #888;
 	-webkit-box-shadow: 0px 1px 2px #888;
 	box-shadow: 0px 1px 2px #888;
@@ -1795,15 +1795,15 @@ a#newslist-next.jbutton:hover {
 }
 
 #wrapper ul.info li.home {
-	background: transparent url(style/images/icon-home.png) no-repeat 0 2px;
+	background: transparent url(images/icon-home.png) no-repeat 0 2px;
 }
 
 #wrapper ul.info li.phone {
-	background: transparent url(style/images/icon-phone.png) no-repeat 0 2px;
+	background: transparent url(images/icon-phone.png) no-repeat 0 2px;
 }
 
 #wrapper ul.info li.email {
-	background: transparent url(style/images/icon-email.png) no-repeat 0 4px;
+	background: transparent url(images/icon-email.png) no-repeat 0 4px;
 }
 
 #twitter-wrapper {
@@ -1817,7 +1817,7 @@ a#newslist-next.jbutton:hover {
 	font-style: italic;
 	font-size:12px;
 	padding: 10px 0;
-	background: #e8e8e8 url(style/images/twitter.png) no-repeat 20px center;
+	background: #e8e8e8 url(images/twitter.png) no-repeat 20px center;
 	min-height: 28px;
 }
 
@@ -1842,7 +1842,7 @@ a#newslist-next.jbutton:hover {
 }
 
 .username {
-	background: transparent url(style/images/twitter-arrow.png) no-repeat center top;
+	background: transparent url(images/twitter-arrow.png) no-repeat center top;
 	position: absolute;
 	padding: 15px 0 0 0;
 	right: 0;
@@ -2054,7 +2054,7 @@ h2.trigger.active {
 	width: 25px;
 	height: 25px;
 	cursor: pointer;
-	background: transparent url(style/images/blog-arrows.jpg) no-repeat top right;
+	background: transparent url(images/blog-arrows.jpg) no-repeat top right;
 	-moz-box-shadow: 0px 1px 2px #888;
 	-webkit-box-shadow: 0px 1px 2px #888;
 	box-shadow: 0px 1px 2px #888;
@@ -2068,7 +2068,7 @@ h2.trigger.active {
 	width: 25px;
 	height: 25px;
 	cursor: pointer;
-	background: transparent url(style/images/blog-arrows.jpg) no-repeat top right;
+	background: transparent url(images/blog-arrows.jpg) no-repeat top right;
 	-moz-box-shadow: 0px 1px 2px #888;
 	-webkit-box-shadow: 0px 1px 2px #888;
 	box-shadow: 0px 1px 2px #888;
@@ -2077,7 +2077,7 @@ h2.trigger.active {
 .d-carousel .jcarousel-direction-rtl .jcarousel-next-horizontal {
 	left: 5px;
 	right: auto;
-	background-image: url(style/images/blog-arrows.jpg);
+	background-image: url(images/blog-arrows.jpg);
 }
 
 .d-carousel .jcarousel-next-horizontal:hover {
@@ -2092,7 +2092,7 @@ h2.trigger.active {
 	width: 25px;
 	height: 25px;
 	cursor: pointer;
-	background: transparent url(style/images/blog-arrows.jpg) no-repeat top left;
+	background: transparent url(images/blog-arrows.jpg) no-repeat top left;
 	-moz-box-shadow: 0px 1px 2px #888;
 	-webkit-box-shadow: 0px 1px 2px #888;
 	box-shadow: 0px 1px 2px #888;
@@ -2106,7 +2106,7 @@ h2.trigger.active {
 	width: 25px;
 	height: 25px;
 	cursor: pointer;
-	background: gray url(style/images/blog-arrows.jpg) no-repeat top left;
+	background: gray url(images/blog-arrows.jpg) no-repeat top left;
 	-moz-box-shadow: 0px 1px 2px #888;
 	-webkit-box-shadow: 0px 1px 2px #888;
 	box-shadow: 0px 1px 2px #888;
@@ -2115,7 +2115,7 @@ h2.trigger.active {
 .d-carousel .jcarousel-direction-rtl .jcarousel-prev-horizontal {
 	left: auto;
 	right: 5px;
-	background-image: url(style/images/blog-arrows.jpg);
+	background-image: url(images/blog-arrows.jpg);
 }
 
 .d-carousel .jcarousel-prev-horizontal:hover {

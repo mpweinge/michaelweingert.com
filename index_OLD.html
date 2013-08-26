@@ -1,0 +1,232 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<title>Michael Weingert</title>
+<link rel="stylesheet" type="text/css" href="style/style.css" media="all" />
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/css/ie7.css" media="all" />
+<![endif]-->
+<script type="text/javascript" src="style/js/jquery-1.5.min.js"></script>
+<script type="text/javascript" src="style/js/jquery.cycle.all.min.js"></script>
+<script type="text/javascript" src="style/js/ddsmoothmenu.js"></script>
+<script type="text/javascript" src="style/js/scripts.js"></script>
+<script type="text/javascript">
+$(function() {
+			if ($('#sliderholder-cycle').length) {
+			// timeouts per slide (in seconds) 
+			var timeouts = [20,20,20];
+			function calculateTimeout(currElement, nextElement, opts, isForward) { 
+			    var index = opts.currSlide; 
+			    return timeouts[index] * 1000;
+			}
+			jQuery('#sliderholder-cycle').cycle({
+				fx: 'fade',
+				pager: '.slidernav',
+				prev:    '.sliderprev',
+        		next:    '.slidernext',
+				speed: 1000,
+				timeoutFn: calculateTimeout,
+				pagerEvent: 'click',
+    			pauseOnPagerHover: true,
+    			cleartype: 1
+});
+			jQuery('#sliderholder-cycle').css("display", "block");
+			jQuery('.slidernav').css("display", "block");
+			
+			}
+}); 
+</script>
+    
+<script type="text/javascript">
+    
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-36255649-1']);
+    _gaq.push(['_trackPageview']);
+    
+    (function() {
+     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+    
+</script>
+    
+</head>
+<body>
+<div id="container"> 
+    <!-- Begin Header Wrapper -->
+    <div id="page-top">
+        <div id="header-wrapper" >
+            <!-- Begin Header -->
+            <div id="header" >
+                <div id="logo" style="bottom:21px"><a href="index.html"><img src="images/Mikey_Name.png" alt="Michael Weingert" /></a></div>
+                <!-- Logo -->
+                <!-- Begin Menu -->
+                <div id="menu-wrapper">
+                    <div id="smoothmenu1" class="ddsmoothmenu">
+                        <ul>
+                            <li><a href="index.html" class="selected">Home</a> </li>
+                            <li><a href="AboutMe.html">About Me</a></li>
+                            <li><a href="MichaelWeingert_Resume.pdf" target="_blank">Resume</a> </li>
+                            <li><a href="Research.html">Research</a>
+                            </li>
+                            <li><a href="Education.html">Education</a></li>
+                            <li><a href="Portfolio.html">Portfolio</a>
+                            </li>
+                            <li><a href="Contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- End Menu -->
+                <p style="position:absolute; font-family:Skolar Italic, Georgia, Times New Roman, serif; font-style:italic; bottom:-15px;left:50px">
+                "Set your goals high, and don't stop till you get there." - Bo Jackson
+                </p>
+                <a href="https://github.com/mpweinge" target="_blank" style="bottom: 35px;position: absolute;left: 410px;"><img src="images/githublogo.png" alt="github" /></a>
+                <a href="http://ca.linkedin.com/pub/michael-weingert/51/853/525" target="_blank" style="bottom: 35px;position: absolute;left: 380px;"><img src="images/linkedInLogo.png" alt="linkedIn" /></a>
+            </div>
+            <!-- End Header -->
+        </div>
+    </div>
+    <!-- End Header Wrapper -->
+    <div id="wrapper">
+    </br> </br>
+ <div class="introtext">
+        <div align="center" style="width:960px; text-align:center; position:relative" >
+        <div style="width:100%; margin: 0 0px 0 0; background-color: #FFFFFF; text-align:left;" class="content">
+           
+                <p> The idea of programming just to solve a task at hand is quickly being supplanted by the need to create intelligent systems that are able to dynamically adapt and learn. There is a growing movement to create more flexible, adaptable, reflective systems to learn and infer from data and deal with the unknown problems of the future. I aim to be at the forefront of this new movement and to create seamless data flow across all platforms, including the fastest growing platform, mobile devices and computing. Ubiquitious data, learning, and intelligence. These will be the pillars of computing in the near future.
+                </p>
+                
+                <h4> To better position myself for future technologies and trends, I have focused my efforts on three key areas:
+                </h4>
+            </div>
+        </div>
+        </div>
+ 
+    <!--
+    <div class="sliderdir">
+        <a href="#" id='TESTID'><span class="sliderprev">Prev</span></a>
+        <a href="#"><span class="slidernext">Nexts</span></a>
+    </div> 
+     -->
+  </div>
+  <!-- End Slider -->  
+  
+  <!-- Begin Wrapper -->
+  <div id="wrapper"> 
+    <!-- End Intro -->
+      </br></br>
+      
+    <!-- Begin About -->
+    <div class="tab-wrapper">
+      <ul id="tab-menu">
+          <li class="selected"><img src="style/images/icon3.png" width = 40px; height=40px; alt="" /> Artificial Intelligence</li>
+        <li><img src="style/images/icon-laptop.png" width = 40px; height=40px; alt="" /> Mobile</li>
+        <li><img src="style/images/icon4.png" width = 40px; height=40px; alt="" /> Graphics</li>
+        <!--<li><img src="style/images/icon-camera.png" alt="" /> Platform Development</li>-->
+      </ul>
+      <div class="tab-content">
+        <div class="tab show">
+          <h3>Artificial Intelligence and Machine Learning</h3>
+          
+          <p> <img src="images/Asimo.jpg" alt="" class="right"/> Through a combination of machine </br></br>As the amount of data in the world increases, it is important to be able to sift through, and learn from it. As the world around us becomes more complex and uncertain, it is important that we are able to create systems to make decisions and reason as best as possible. </br> </br> Please see my research and portfolio sections for more information on related projects, and my education section for a more detailed look at relevant coursework I have completed.</p>
+        </div>
+        <div class="tab">
+          <h3>Mobile Development</h3>
+          <p><img src="images/Mobile-Development.jpg" alt="" class="right"/> Mobile technology and adoption is the most rapidly growing field. A market that didn't exist 10 years ago has now become a pillar of current software development. As users take these devices with them wherever they go, the data, software, and experiences are truly ubiquitious.  I have familiarity with iOS and Windows8 mobile development, but am always expanding upon my skills to make sure that I am able to align myself with upcoming trends in the technological world. </br></br> Please see my research and portfolio sections for more detail.</p>
+        </div>
+        <div class="tab">
+          <h3>Graphics Development</h3>
+            <p><img src="images/Graphics_Tesselation.jpg" alt="" class="right" width="400"/> The ability to create visualizations of data, games, and general information is becoming more and more important as the technology and expectations of the masses continue to increase. In addition, as GPUs continue to become more powerful, these visualizations are moving towards 3D instead of 2D. I have experience using OpenGL and OpenCL/GLSL to create representations of data and games to present to a user. I have created interactive systems that present information in an effective and efficient manner. </br></br> Please see my research and portfolio sections for more detail.</p>
+        </div>
+          
+      </div>
+    </div>
+
+    <div class="clear"></div>
+    <!-- End About --> 
+
+      <!-- Begin Intro -->
+      <!--</br>
+      <div class="intro" style="padding-top:20px">
+          <h1>Working hard to achieve innovative and efficient engineering solutions. </h1>
+              </div>-->
+      
+  </div>
+  
+  <!-- End Wrapper -->
+  <div class="clearfix"></div>
+  <div class="push"></div>
+</div>
+
+    <!-- Begin Footer -->
+    <div id="footer-wrapper">
+        <div id="footer">
+            <div id="footer-content">
+                
+                <!-- Begin Copyright -->
+                <div id="copyright">
+                    <p>© Copyright 2012 | Michael Weingert</p>
+                </div>
+                <!-- End Copyright -->
+                
+                <!-- Begin Social Icons 
+                <div id="socials">
+                    <ul>
+                        <li><a href="https://github.com/mpweinge"><img src="images/githublogo.png" alt="github" /></a></li>
+                        <li><a href="http://ca.linkedin.com/pub/michael-weingert/51/853/525"><img src="images/linkedInLogo.png" alt="linkedIn" /></a></li>
+                    </ul>
+                </div>
+                <!-- End Social Icons -->
+                
+            </div>
+        </div>
+    </div>
+    <!-- End Footer -->
+
+<script type="text/javascript">
+
+$(document).ready(function() {	
+  //Get all the LI from the #tabMenu UL
+  $('#tab-menu > li').click(function(){
+    //remove the selected class from all LI    
+    $('#tab-menu > li').removeClass('selected');
+    //Reassign the LI
+    $(this).addClass('selected');
+    //Hide all the DIV in .tab-content
+    $('.tab-content div.tab').slideUp('slow');
+    //Look for the right DIV in boxBody according to the Navigation UL index, therefore, the arrangement is very important.
+    $('.tab-content div.tab:eq(' + $('#tab-menu > li').index(this) + ')').slideDown('slow');
+  }).mouseover(function() {
+    //Add and remove class, Personally I dont think this is the right way to do it, anyone please suggest    
+    $(this).addClass('mouseover');
+    $(this).removeClass('mouseout');   
+  }).mouseout(function() {
+    //Add and remove class
+    $(this).addClass('mouseout');
+    $(this).removeClass('mouseover');    
+  });
+            
+});
+
+$(function() {
+            var offset = $("#tab-menu").offset();
+            var topPadding = 15;
+            $(window).scroll(function() {
+                if (($(window).scrollTop() > offset.top) && (($(window).scrollTop() - offset.top ) < 80)){
+                    $("#tab-menu").stop().animate({
+                        marginTop: $(window).scrollTop() - offset.top + topPadding
+                    });
+                } else {
+                    $("#tab-menu").stop().animate({
+                        marginTop: 0
+                    });
+                };
+            });
+        });
+  
+
+</script>
+</body>
+</html>

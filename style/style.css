@@ -153,7 +153,7 @@ a {
 
 a:hover {
 	text-decoration: none;
-	color: #5d8ba6;
+	color: #761F1F;
 }
 
 a.more {
@@ -626,11 +626,11 @@ table.price td h2 sup {
 }
 
 .ddsmoothmenu ul li a.selected { /*CSS class that's dynamically added to the currently active menu items' LI A element*/
-	color: #5d8ba6;
+	color: #761F1F;
 }
 
 .ddsmoothmenu ul li a:hover {
-	color: #5d8ba6;
+	color: #761F1F;
 }
 
 /*1st sub level menu*/
@@ -985,11 +985,11 @@ ul.gallerynav li a {
 
 ul.gallerynav li a:hover {
 	text-decoration: none;
-	color: #5d8ba6;
+	color: #761F1F;
 }
 
 ul.gallerynav li.selected-1 a {
-	color: #5d8ba6;
+	color: #761F1F;
 }
 
 .hidden {
@@ -1076,7 +1076,7 @@ ul#tab-menu li {
 }
 
 ul#tab-menu li:hover, ul#tab-menu li.selected {
-	color: #5d8ba6;
+	color: #761F1F;
 }
 
 ul#tab-menu li img {

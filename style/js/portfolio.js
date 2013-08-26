@@ -122,7 +122,7 @@ $(function() {
     										  
     // SET OPACITY TO 100%
     $(this).stop().animate({
-    opacity: 0.5
+    opacity: 0.25
     }, "slow");
     },
     		

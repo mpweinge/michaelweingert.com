@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<title>Michael Weingert</title>
+<link rel="stylesheet" type="text/css" href="style/style.css" media="all" />
+
+<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script> <!--JQuery-->
+
+    
+<script type="text/javascript">
+    
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-36255649-1']);
+    _gaq.push(['_trackPageview']);
+    
+    (function() {
+     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+    
+</script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  var originalMainFontSize = 100;
+  var originalLinksFontSize = 15;
+  var sectionWidth = 60;
+
+  $('#main div').each(function()
+  {
+    var spanWidth = $(this).width();
+    var newFontSize = (spanWidth/sectionWidth) * originalMainFontSize;
+    var newLineWidth = newFontSize / 3 / 2;
+    $(this).css({"font-size" : newFontSize + "%", "line-height":newLineWidth + "px"});
+  });
+  $('#Links div').each(function()
+  {
+    var spanWidth = $(this).width();
+    var newFontSize = (spanWidth/sectionWidth) * originalLinksFontSize;
+    var newLineWidth = newFontSize /2;
+    $(this).css({"font-size" : newFontSize + "%", "line-height":newLineWidth + "px"});
+  });
+});
+$(window).resize(function() {
+  var originalMainFontSize = 100;
+  var originalLinksFontSize = 15;
+  var sectionWidth = 60;
+
+  $('#main div').each(function()
+  {
+    var spanWidth = $(this).width();
+    var newFontSize = (spanWidth/sectionWidth) * originalMainFontSize;
+    var newLineWidth = newFontSize / 3 / 2;
+    $(this).css({"font-size" : newFontSize + "%", "line-height":newLineWidth + "px"});
+  });
+  $('#Links div').each(function()
+  {
+    var spanWidth = $(this).width();
+    var newFontSize = (spanWidth/sectionWidth) * originalLinksFontSize;
+    var newLineWidth = newFontSize /2;
+    $(this).css({"font-size" : newFontSize + "%", "line-height":newLineWidth + "px"});
+  });
+})
+</script>
+
+    
+</head>
+<body>
+
+    <div id="main" style=" float: left; margin-left:15%;width:35%; vertical-align:bottom; margin-top:20%">
+      <div style="font-family: 'Raleway', sans-serif;line-height:62px; text-align:left;vertical-align:bottom;"> 
+        <span style="color:#000000;">Michael</span></br>
+        <span style="color:#761F1F;">Weingert </span>
+      </div>
+    </div>
+    <div id="Links" style="float: left; font-family: 'Raleway', sans-serif; font-size:250%; line-height:52px; text-align:left; width:45%;margin-top:15%;margin-left:5%">
+      <div style="line-height:52px;">
+        <a href='MichaelWeingert_Resume.pdf'><img src="images\ResumeIcon.png" style="height:1em; width:8%;vertical-align:middle"/>    Resume</a></br>
+        <a href="Projects.html"><img src="images\App Store.png" style="height:1em; vertical-align:middle"/>  Projects </a></br>
+        <a href="http://ca.linkedin.com/pub/michael-weingert/51/853/525"><img src="images\linkedInLogo_NEW.png" style="height:1em; vertical-align:middle"/>  LinkedIn</a>  </br>
+        <a href="AboutMe.html"><img src="images\Facebook.png" style="height:1em; vertical-align:middle"/>  About Me  </a></br>
+        <a href="mailto:mpweingert@gmail.com"><img src="images\MailIcon.png" style="height:1em; vertical-align:middle"/>  Email</a>
+      </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,261 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<title>Michael Weingert | Portfolio</title>
+<link rel="stylesheet" type="text/css" href="style/style.css" media="all" />
+<link rel="stylesheet" media="all" href="style/css/prettyPhoto.css" />
+<link rel="stylesheet" media="all" href="style/type/puritan.css" />
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/css/ie7.css" media="all" />
+<![endif]-->
+<script type="text/javascript" src="style/js/jquery-1.5.min.js"></script>
+<script type="text/javascript" src="style/js/ddsmoothmenu.js"></script>
+<script type="text/javascript" src="style/js/portfolio.js"></script>
+<script type="text/javascript" src="style/js/quicksand.js"></script>
+<script type="text/javascript" src="style/js/scripts.js"></script>
+<script type="text/javascript" src="style/js/jquery.prettyPhoto.js"></script>
+    
+<script type="text/javascript">
+    
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-36255649-1']);
+    _gaq.push(['_trackPageview']);
+    
+    (function() {
+     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+    
+    </script>
+    
+</head>
+    
+    
+    <script type = "text/javascript">
+        //Finds y value of given object
+        function findPos(obj) {
+            var curtop = 0;
+            if (obj.offsetParent) {
+                do {
+                    curtop += obj.offsetTop;
+                } while (obj = obj.offsetParent);
+                return [curtop];
+            }
+        }
+        </script>
+    
+<body>
+<div id="container"> 
+    <!-- Begin Header Wrapper -->
+    <div id="page-top">
+         <div id="header-wrapper" >
+            <!-- Begin Header -->
+            <div id="header">
+                <div id="logo" style="bottom:21px"><a href="index.html"><img src="images/Mikey_Name.png" alt="Michael Weingert" /></a></div>
+                <!-- Logo -->
+                <!-- Begin Menu -->
+                <div id="menu-wrapper">
+                    <div id="smoothmenu1" class="ddsmoothmenu">
+                        <ul>
+                            <li><a href="AboutMe.html">About Me</a></li>
+                            <li><a href="MichaelWeingert_Resume.pdf" target="_blank">Resume</a> </li>
+                            <li><a href="Education.html">Education</a></li>
+                            <li><a href="Projects.html" class="selected">Projects</a>
+                            </li>
+                            <li><a href="Contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- End Menu -->
+                <p style="position:absolute; font-family:Skolar Italic, Georgia, Times New Roman, serif; font-style:italic; bottom:-15px;left:50px">
+                "Set your goals high, and don't stop till you get there." - Bo Jackson
+                </p>
+                <a href="https://github.com/mpweinge" target="_blank" style="bottom: 35px;position: absolute;left: 410px;"><img src="images/githublogo.png" alt="github" /></a>
+                <a href="http://ca.linkedin.com/pub/michael-weingert/51/853/525" target="_blank" style="bottom: 35px;position: absolute;left: 380px;"><img src="images/linkedInLogo.png" alt="linkedIn" /></a>
+            </div>
+            <!-- End Header -->
+        </div>
+    </div>
+         </br></br>
+    <!-- End Header Wrapper -->
+      <div align="center" style="width:100%; text-align:center;" >
+          <div align="center" style="text-align:left; margin: 0 auto; width:920px; background-color: #FFFFFF position:absolute;"
+              class="content">
+              <p>
+              Please click on a category to filter my portfolio and click on an image to view a brief synopsis. Some source code can be seen on my <a href = "http://www.github.com/mpweinge" style="text-decoration:underline" target="_blank">github account</a>
+              </p>
+          </div>
+      </div>
+    </br>
+
+  <!-- Begin Wrapper -->
+  <div id="wrapper">
+    <div id="portfolio"> 
+      <!-- Begin Portfolio Navigation -->
+      <ul class="gallerynav" id ="gallerynavtitle">
+        <li class="selected-1"><a href="#" data-value="all">All<span></span></a></li>
+        <li><a href="#" data-value="Mobile">Mobile<span></span></a></li>
+        <li><a href="#" data-value="Console">Console Games<span></span></a></li>
+        <li><a href="#" data-value="AI">AI<span></span></a></li>
+        <li><a href="#" data-value="Platform">Desktop Development<span></span></a></li>
+      </ul>
+      <!-- End Portfolio Navigation --> 
+      <!-- Begin Portfolio Elements -->
+        
+        <style type="text/css">
+            .rightText
+            {
+                width:100%;
+                z-index:-1;
+            }
+            
+            .rightText h1 {
+                line-height: 1;
+            }
+            .leftText
+            {
+                width:400px;
+            }
+            </style>
+        <p class = leftText id="TopText"></p>
+        <div id="PortfolioGall" style="display: inline-block; width: 50%;">
+            <ul id="gallery" class="grid">
+                <script>
+                    var UltrasoundText = "While working at Sunnybrook Hospital, I worked to create a real time 3D visualization of what a heart catheter sees. Part of this task involved offloading image processing and trasnformations onto a GPU to perform the necessary calculations in real time. Technologies used include OpenGL, OpenCL, GLSL, C#, C++, C, and VHDL. ";
+                    var CheckersText = "This personal project was an introduction into java programming and java 2D graphics. This was my first foray into programming. I created a 2 player checkers game with a one move game tree.";
+                    var OSText = "As part of my real time operating system course at the University of Waterloo, I created a real time operating system on top of the linux kernel demonstrating process switching in a real time system. The nCurses library was utilized to create terminal graphics. A perfect grade was achieved.";
+                    var SudokuText = "This personal project was an introduction into artificial intelligence. A Sudoku AI was created to solve any sudoku puzzle. I created my own algorithms to combine constrained searching with sudoku logic in a game tree to solve the puzzle efficiently. It is capable of solving any sudoku puzzle in under a second.";
+                    var SplinterCellText = "As an intern at Ubisoft, I worked under the Artifical Intelligence team on Splinter Cell: Blacklist. My work involved interacting with the bayesian network and heirarchical state (decision) tree, and extending it in response to environment stimuli. I worked closely with several different teams internally to create a solution that was both technically strong and with a polished user experience.";
+                    var ChessAIText = "This was a project I completed in my free time to create a Chess AI. The AI learnt from genetic algorithms (as there was not enough stochasticity to train a reinforcement learning algorithm). The AI makes moves based on a constrained minimax game tree which is pruned using alpha-beta pruning. The AI was presented at a design symposium at the University of Waterloo where it won all 6 games played against human volunteers. The source can be viewed on my github account.";
+                    var GestureText = "This is a ongoing project involving examining various methods to recognize touch gestures on a mobile device. Specifically I am targeting iOS at the moment. This work involves trying to expand the number of recognizable 'stock' gestures on mobile (which is somewhat limited currently). Some of the source can viewed on my github account.";
+                    var DynamicsText = "During my first internship at Microsoft, I worked as a mobile developer on the Microsoft CRM team. Specifically, I wrote native applications (iOS and Windows8), and created an infrastructure (communication bridge) to allow communication between web applications, and native based components.";
+                    var KinectText = "During my most recent internship at Microsoft, I was working on the skeleton tracking pipeline on the Kinect product. I was responsible for creating a full machine learning pipeline, collecting data, and then training solutions for customer-facing components. I worked with internal and external partners to ensure that the solutions were technically strong and improved the user experience.";
+                    var TrailViewText = "TrailView is an ongoing project to create a system to collect photos from users. The project investigates the use of a gamification mechanism to drive useful data collection. The goal is to create something similar to Google StreetView for hiking trails. A trailer for the application can be viewed below." + '<iframe width="420" height="315" margin-left=-20px src="//www.youtube.com/embed/ItYvRGTlo30?rel=0" frameborder="0" allowfullscreen></iframe>';
+                    var Tilt2WinText = "Tilt2Win was the winning project in Microsoft's 24 hour Intern Hackathon. Utilizing an android phone as a game controller, a user is able to control a physical tilting game. I wrote the android and arduino code, as well as the bluetooth communication bridge. A demo of the project can be viewed below." + '<iframe width="420" height="315" src="//www.youtube.com/embed/wyii-dksYBA?rel=0" frameborder="0" allowfullscreen></iframe>'; 
+                    </script>
+            
+                <li id="KinectML" data-id="id-16" class="AI Console Platform" > <a onclick = 'OnButtonClick(KinectText, "Kinect Machine Learning", "images/Kinect_Skeleton.jpg")'> <img src="images/Kinect_Skeleton.jpg" alt="" onmouseover='OnHover("Machine Learning on Kinect", "KinectML")' onmouseout='deleteHover()'/></a> </li>
+
+                <li id="TrailView" data-id="id-17" class="Mobile" > <a onclick = 'OnButtonClick(TrailViewText, "TrailView Mobile Application", "images/TrailView_Try4.png")'> <img src="images/TrailView_Try4.png" alt="" onmouseover='OnHover("TrailView Mobile App", "TrailView")' onmouseout='deleteHover()'/></a> </li>
+
+                <li id="Tilt2Win" data-id="id-18" class="Mobile" > <a onclick = 'OnButtonClick(Tilt2WinText, "Tilt2Win Hackathon Application", "images/Tilt2Win.png")';> <img src="images/Tilt2Win.png" alt="" onmouseover='OnHover("Tilt 2 Win Game", "Tilt2Win")' onmouseout='deleteHover()'/></a> </li>
+
+                <li id="ChessAI" data-id="id-6" class="Console AI Platform" > <a onclick = 'OnButtonClick(ChessAIText, "Chess AI", "images/Chess-AI.jpg")'> <img src="images/Chess-AI.jpg" alt="" onmouseover='OnHover("Chess AI", "ChessAI")' onmouseout='deleteHover()'/></a> </li>
+          
+                <li id="TouchRecognition" data-id="id-7" class="Mobile AI" > <a onclick = 'OnButtonClick(GestureText, "Touch Gestures on Mobile Devices", "images/touchGestures.jpg")'> <img src="images/touchGestures.jpg" alt="" onmouseover='OnHover("Mobile Touch Recognition", "TouchRecognition")' onmouseout='deleteHover()'/></a> </li>
+
+                <!-- Begin Image 1 -->
+                <li id="Ultrasound" data-id="id-1" class="Platform" > <a onclick = 'OnButtonClick(UltrasoundText, "3D Real Time Ultrasound Viewing Application -  Data and Image pipeline", "images/Heart_ultrasound.jpeg")' onmouseover='OnHover("Ultrasound Viewing Application", "Ultrasound")'> <img src="images/Heart_ultrasound.jpeg" alt="" onmouseout='deleteHover()'/></a> </li>
+                <!-- End Image 1 -->
+        
+                <li id="Checkers" data-id="id-2" class="Console" > <a onclick = 'OnButtonClick(CheckersText, "2 player Checkers game", "images/checkers.jpg")'> <img src="images/checkers.jpg" alt="" onmouseover='OnHover("2 Player Checkers Game", "Checkers")' onmouseout='deleteHover()'/></a> </li>
+          
+                <li id="RTOS" data-id="id-3" class="Platform" > <a onclick = 'OnButtonClick(OSText, "Real Time Operating System", "images/RTOS.png")'> <img src="images/RTOS.png" alt="" onmouseover='OnHover("Real Time Operating System", "RTOS")' onmouseout='deleteHover()'/></a> </li>
+          
+                <li id="Sudoku" data-id="id-4" class="Console AI" > <a onclick = 'OnButtonClick(SudokuText, "Sudoku Solver - AI", "images/Sudoku.png")'> <img src="images/Sudoku.png" alt="" onmouseover='OnHover("Sudoku AI", "Sudoku")' onmouseout='deleteHover()'/></a> </li>
+          
+                <li id="Ubisoft" data-id="id-5" class="Platform Console AI" > <a onclick = 'OnButtonClick(SplinterCellText, "AI Programmer - Splinter Cell Blacklist", "images/SCBlacklist.jpeg")'> <img src="images/SCBlacklist.jpeg" alt="" onmouseover='OnHover("Splinter Cell AI", "Ubisoft")' onmouseout='deleteHover()'/></a> </li>
+          
+                <li id="MicrosoftCRM" data-id="id-15" class="Mobile" > <a onclick = 'OnButtonClick(DynamicsText, "MicrosoftCRM Mobile Development", "images/MicrosoftCRM.jpg")'> <img src="images/MicrosoftCRM.jpg" alt="" onmouseover='OnHover("Mobile Developer at Microsoft", "MicrosoftCRM")' onmouseout='deleteHover()'/></a> </li>
+            </ul>
+        </div>
+        
+        <div style="display: inline-block; width: 42%; vertical-align: top; padding-left: 50px;" class = "content">
+            <p class = rightText id="PortfolioText"> Click on an image to view more information, or sort by category.</p>
+        </div>
+      <!-- End Portfolio Elements --> 
+      <script>
+          function OnButtonClick(text, name, picture)
+          {
+              var TopText = document.getElementById('PortfolioText');
+              TopText.innerHTML = text;
+              var GalleryTitle = document.getElementById('gallerynavtitle');
+              $('body,html').animate({scrollTop: findPos(GalleryTitle) - 100 }, 400);
+              
+              document.getElementById("PortfolioText").innerHTML = "<h1>" + name + "</h1>" + "<img src=" + picture+ " WIDTH=350 HEIGHT=300 />" + "<p>" + text + "</p>";
+          }
+          var para;
+          function OnHover(text, ID)
+          {
+            var Gallery = document.getElementById("PortfolioGall");
+            var top= $('#'+ID).position();
+            para=document.createElement("p");
+            var node=document.createTextNode(text);
+            para.appendChild(node);
+            $(para).css("top", top.top+90+"px");
+            $(para).css("left", top.left+20+"px");
+            $(para).css("width", $('#'+ID).width()+"px");
+            //$(para).css("height", $('#'+ID).height()+"px");
+            $(para).css("text-align", "center");
+            $(para).css("vertical-align", "middle");
+            //para.style.top = top.top+"px";
+            para.style.position = "absolute";
+            $(para).css("font-size", "20px");
+            $(para).css("color","black");
+            $(para).css("pointer-events", "none");
+            //para.style.font-size="400px";
+            $(para).css("opacity", "1");
+            $(para).css("background-color", "rgba(255, 255, 255, 0.5)");
+            Gallery.appendChild(para);
+            //$(para).animate(
+            //{
+            //  opacity:1
+            //}, 100, function() {
+            //});
+            
+          }
+
+          function deleteHover()
+          {
+              //$(para).fadeOut('fast', function() {
+                var Gallery = document.getElementById("PortfolioGall");
+                Gallery.removeChild(para);
+              //});
+          }
+      </script>
+  <!-- End Wrapper -->
+  <div class="clearfix"></div>
+  <div class="push"></div>
+      </div>
+      </div>
+</div>
+
+    <!-- Begin Footer -->
+    <div id="footer-wrapper">
+        <div id="footer">
+            <div id="footer-content">
+                
+                <!-- Begin Copyright -->
+                <div id="copyright">
+                    <p>© Copyright 2013 | Michael Weingert</p>
+                </div>
+                <!-- End Copyright -->
+                
+                <!-- Begin Social Icons -
+                <div id="socials">
+                    <ul>
+                        <li><a href="https://github.com/mpweinge"><img src="images/githublogo.png" alt="github" /></a></li>
+                        <li><a href="http://ca.linkedin.com/pub/michael-weingert/51/853/525"><img src="images/linkedInLogo.png" alt="linkedIn" /></a></li>
+                    </ul>
+                </div>
+                <!-- End Social Icons -->
+                
+            </div>
+        </div>
+    </div>
+    <!-- End Footer -->
+<script type="text/javascript">
+$(document).ready(function(){
+			$("#gallery a[rel^='prettyPhoto']").prettyPhoto({theme:'light_square',autoplay_slideshow: false});
+			
+			$("ul.grid img").hide()
+			$("ul.grid img").each(function(i) {
+			  $(this).delay(i * 200).fadeIn();
+			});
+			
+});
+</script>
+</body>
+</html>

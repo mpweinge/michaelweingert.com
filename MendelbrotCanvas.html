@@ -1,0 +1,325 @@
+<!DOCTYPE HTML>
+<html lang = "en-US">
+<head><title>Mendelbrot Set Viewer </title></head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="style/style.css" media="all" />
+<!--<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>-->
+<script type="text/javascript" src="style/js/jquery-1.5.min.js"></script>
+
+<script type="text/javascript">
+    
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-36255649-1']);
+    _gaq.push(['_trackPageview']);
+    
+    (function() {
+     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+    
+</script>
+
+<body>
+	<!-- Begin Header Wrapper -->
+    <div id="page-top">
+        <div id="header-wrapper">
+            <!-- Begin Header -->
+            <div id="header">
+                <div id="logo" style="bottom:10px"><a href="index.html"><p style="font-family: 'Raleway', sans-serif; font-size:310%"> Michael Weingert</p> </a></div>
+                <!-- Logo -->
+                <!-- Begin Menu -->
+                <div id="menu-wrapper">
+                    <div id="smoothmenu1" class="ddsmoothmenu" style="font-size:150%">
+                        <ul>
+                        	<li><a href="FractalHome.html">Home</a> </li>
+                            <li><a href="BinaryFractalCanvas.html">Binary Tree</a> </li>
+                            <li><a href="JuliaSetCanvas.html" >Julia Set</a>
+                            </li>
+                            <li><a href="MendelbrotCanvas.html" class="selected">Mendelbrot Set</a></li>
+                            <li><a href="IFS.html">Iterated Function Systems</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- End Header -->
+        </div>
+    </div>
+	</br>
+	</br>
+	</br></br>
+	<div id="wrapper">
+
+		<div align="center" style="width:1200px; text-align:center; background-color: #FFFFFF;" >
+            <div style="float:left;width:460px; height:480px; margin: 0 20px 0 0; background-color: #FFFFFF; text-align:left;" class="content">
+
+            	<h1> Mendelbrot Set </h1>
+            	</br>
+
+				Colour Saturation <input type="range" id="colRange" min = "0" max = "1" step = "0.05" value = "0.2" oninput="colChange()"> <input id="colRangeText" type="text" size="5" value="0.2" oninput="colTextChange()">
+				</br>
+				</br>
+
+				Fractal Colour<input type="color" id="fractalColour" value ="#000000">
+				Base Colour <input type="color" id="baseColour" value="#000000">
+				End Colour <input type="color" id="endColour" value="#FFFFFF">
+
+				<button onclick="colSelChange()"> Redraw </button>
+
+				</div>
+		
+            <div style="float:left;width:500px; height:500px; background-color: #FFFFFF; text-align:left; padding-left:0px; padding-right:0px; padding-top:0px" class="content">
+
+			<canvas id="mendelbrotCanvas" width="500" height="500" onmousedown="MouseDown(event)" onmousemove="MouseMove(event)" onmouseup="MouseUp(event)">
+			Your browser does not support HTML5 Canvas.
+			</canvas>
+
+			</div>
+		</div>
+
+<script>
+
+var mouseDown = false;
+var mousePosx = 0;
+var mousePosy = 0;
+
+var xMin = -2;
+var xMax = 2;
+var yMin = -2;
+var yMax = 2;
+
+var imageData;
+
+var maxIndex = 0;
+
+function colourToHexArray(colour){
+  	var retArr = new Array();
+  	retArr[0] = colour[1] + colour[2];
+  	retArr[1] = colour[3] + colour[4];
+  	retArr[2] = colour[5] + colour[6];
+
+  	retArr[0] = parseInt(retArr[0], 16);
+  	retArr[1] = parseInt(retArr[1], 16);
+  	retArr[2] = parseInt(retArr[2], 16);
+
+  	return retArr;
+}
+
+function colSelChange() {
+
+	baseColArr = colourToHexArray($("#baseColour").val());
+	endColArr = colourToHexArray($("#endColour").val());
+
+	var colIndex = 255 * parseFloat(document.getElementById('colRange').value);
+
+	mendelbrotObj = document.getElementById("mendelbrotCanvas");
+	var ctx = mendelbrotObj.getContext("2d");
+
+	ctx.clearRect(0, 0, 500, 500);
+	ctx.fillStyle = "#FFFFFF";
+	ctx.fillRect(0, 0, 600, 600);
+
+	//Scaling factor is now 255 / maxHist
+	for (var i = 0; i < 500; i++)
+	{
+		for (var j = 0; j < 500; j++)
+		{
+			if (valuesArray[i][j] < (colIndex * 0.75) )
+			{
+				var rShade = endColArr[0] - Math.floor(valuesArray[i][j] / colIndex * (endColArr[0] - baseColArr[0]));
+
+				var gShade = endColArr[1] - Math.floor(valuesArray[i][j] / colIndex * (endColArr[1] - baseColArr[1]));
+
+				var bShade = endColArr[2] - Math.floor(valuesArray[i][j] / colIndex * (endColArr[2] - baseColArr[2]));
+
+				ctx.fillStyle = "rgb(" + rShade + "," + gShade + "," + bShade + ")";
+			}
+			else
+			{
+				ctx.fillStyle = $("#fractalColour").val();
+			}
+			ctx.fillRect(i-250, -(j-250), 1, 1);	
+		}
+	}
+}
+
+function colChange() {
+	colSelChange();
+}
+
+function colTextChange() {
+	colSelChange();
+}
+
+function MouseDown(e) {
+	mouseDown = true;
+	//Mouse coordinates relative to canvas
+
+	var mendelbrotObj = document.getElementById("mendelbrotCanvas");
+	var ctx3 = mendelbrotObj.getContext("2d");
+
+	mousePosx = e.x - $("#mendelbrotCanvas").offset().left - 250;
+	mousePosy = e.y - $("#mendelbrotCanvas").offset().top - 250;
+
+	imageData = ctx3.getImageData(0,0,500,500);
+}
+
+function MouseMove(e) {
+	if (mouseDown) {
+		//Draw a little box to show what's up
+		var mendelbrotObj = document.getElementById("mendelbrotCanvas");
+		var ctx3 = mendelbrotObj.getContext("2d");
+
+		var mouseX = e.x - $("#mendelbrotCanvas").offset().left - 250;
+		var mouseY = e.y - $("#mendelbrotCanvas").offset().top - 250;
+
+		var minX = mouseX < mousePosx ? mouseX : mousePosx;
+		var maxY = mouseY < mousePosy ? mouseY : mousePosy;
+
+		ctx3.strokeStyle = "red";
+		ctx3.putImageData(imageData, 0, 0);
+		ctx3.strokeRect(minX, maxY, Math.abs(mouseX - mousePosx), Math.abs(mouseY - mousePosy));
+	}
+}
+
+function MouseUp(e) {
+
+	var mouseX = e.x - $("#mendelbrotCanvas").offset().left - 250;
+	var mouseY = e.y - $("#mendelbrotCanvas").offset().top - 250;
+	
+	//Going from mousePosx to
+
+	var Left = mouseX < mousePosx ? mouseX : mousePosx;
+	var Right = mouseX > mousePosx ? mouseX : mousePosx;
+	var Top = mouseY < mousePosy ? mouseY : mousePosy;
+	var Bottom = mouseY > mousePosy ? mouseY : mousePosy;
+
+	Top = Top * -1;
+	Bottom = Bottom * -1;
+
+	var newLeftBound = (xMin+xMax)/2 + (Left / 500) * (xMax - xMin);
+	var newRightBound = (xMin+xMax)/2 + (Right / 500) * (xMax - xMin);
+
+	var newUpBound = (yMin+yMax) / 2 + (Top / 500) * (yMax - yMin);
+	//if (newUpBound < 0) newUpBound = 2 + newUpBound;
+	//else newUpBound = 2 - newUpBound;
+
+	var newBottomBound = (yMin+yMax)/2 + (Bottom / 500) * (yMax - yMin);
+
+	var mendelbrotObj = document.getElementById("mendelbrotCanvas");
+	var ctx3 = mendelbrotObj.getContext("2d");
+
+	mendelbrot(ctx3, newLeftBound, newRightBound, newBottomBound, newUpBound);
+
+	mouseDown = false;
+	mousePosx = 0;
+	mousePosy = 0;
+
+	xMin = newLeftBound;
+	xMax = newRightBound;
+
+	yMin = newBottomBound;
+	yMax = newUpBound;
+}
+
+	mendelbrotObj = document.getElementById("mendelbrotCanvas");
+	var ctx3 = mendelbrotObj.getContext("2d");
+
+
+	ctx3.clearRect(0, 0, 600, 600);
+	ctx3.fillStyle = "#FFFFFF";
+	ctx3.fillRect(0, 0, 600, 600);
+
+	ctx3.translate(ctx3.canvas.width / 2, ctx3.canvas.height / 2);
+	mendelbrot(ctx3, -2, 2, -2, 2);
+
+	var valuesArray = new Array(500);
+	for (var i = 0; i < 500; i++) {
+		valuesArray[i] = new Array(500);
+	}
+
+function mendelbrot(ctx, left, right, bottom, top)
+{
+	this.currIterRe = 0;
+	this.currIterIm = 0;
+
+	this.cReal = 0;
+	this.cImag = 0;
+
+	ctx.fillStyle = 'black';
+
+	//ctx.translate(ctx.canvas.width / 2, ctx.canvas.height / 2);
+
+	var self = this;
+
+	this.main = function() {
+		this.currIterRe = 0;
+		this.currIterIm = 0;
+
+		ctx.fillStyle = 'black';
+		numValues = 0;
+
+		for (var x = -250; x < 250; x++)
+		{
+			for (var y = -250; y < 250; y++)
+			{
+				(function(x, y) {
+					setTimeout( function() {
+						var xCoord = (right + left) / 2 + x / 500 * (right - left);
+						var yCoord = (top + bottom) / 2 + y / 500 * (top - bottom);
+
+						this.cReal = xCoord;
+						this.cImag = yCoord;
+
+						var iter = self.iterate(xCoord, yCoord);
+
+						var shade = 255 - iter / 0.2;
+
+						ctx.fillStyle = "rgb(" + shade + "," + shade + "," + shade + ")";
+						ctx.fillRect(x, -y, 1, 1);
+
+						valuesArray[x+250][y+250] = iter;
+					}, 1);
+				})(x,y);
+			}
+		}
+	}
+
+	this.vectorMagnitude = function(real, imag)
+	{
+		return Math.sqrt(Math.pow(real, 2) + Math.pow(imag, 2));
+	}
+
+	this.mendelbrotFcn = function(real, imag)
+	{
+		self.currIterRe = real * real - imag * imag + this.cReal;
+		self.currIterIm = 2 * real * imag + this.cImag;
+	}
+
+	this.iterate = function(real, imag) {
+		self.currIterRe = real;
+		self.currIterIm = imag;
+
+		var currMag = vectorMagnitude(real, imag);
+
+		if (currMag > 2)
+			return 0;
+
+		for (var i = 0; i < 255; i++){
+			self.mendelbrotFcn(self.currIterRe, self.currIterIm);
+			var mag = self.vectorMagnitude(self.currIterRe, self.currIterIm);
+			if ( parseFloat(mag) > 2)
+				return i;
+		}
+		return 255;
+	}
+
+	this.main();
+}
+
+
+</script>
+
+</body>
+
+</html>

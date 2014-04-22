@@ -1,0 +1,199 @@
+<!DOCTYPE HTML>
+<html lang = "en-US">
+<head><title>Fractal Home</title></head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="style/style.css" media="all" />
+<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="style/js/jquery-1.5.min.js"></script>
+
+<script type="text/javascript">
+    
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-36255649-1']);
+    _gaq.push(['_trackPageview']);
+    
+    (function() {
+     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+    
+</script>
+
+<body>
+
+	<!-- Begin Header Wrapper -->
+    <div id="page-top">
+        <div id="header-wrapper">
+            <!-- Begin Header -->
+            <div id="header">
+                <div id="logo" style="bottom:10px"><a href="index.html"><p style="font-family: 'Raleway', sans-serif; font-size:310%"> Michael Weingert</p> </a></div>
+                <!-- Logo -->
+                <!-- Begin Menu -->
+                <div id="menu-wrapper">
+                    <div id="smoothmenu1" class="ddsmoothmenu" style="font-size:150%">
+                        <ul>
+                        	<li><a href="FractalHome.html" class="selected">Home</a> </li>
+                            <li><a href="BinaryFractalCanvas.html" >Binary Tree</a> </li>
+                            <li><a href="JuliaSetCanvas.html" >Julia Set</a>
+                            </li>
+                            <li><a href="MendelbrotCanvas.html" >Mendelbrot Set</a></li>
+                            <li><a href="IFS.html">Iterated Function Systems</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- End Header -->
+        </div>
+    </div>
+	</br>
+	</br>
+	</br></br>
+
+    <div id="wrapper">
+        <div class="content">
+            <h1>
+                Welcome!
+            </h1>
+            <p>
+                In this page and the related subdirectories I will present computational implementations of binary tree fractals, the julia set, the mendelbrot set, and IFS (Iterated Function System) fractals. 
+            </p>
+            <p>
+                The following paper presents an outline of the methods utilized to efficiently draw each of the fractals as well as the associated issues with each. The pages for each fractal will give a brief description as well, as well as the ability to customize the fractals rendered to produce pretty images!
+            </p>
+
+            <p>
+                Click on a link in the header at the top or below to begin creating and exploring fractal images.
+            </p>
+        </div>
+    </div>
+
+    <div id="wrapper">
+
+        <div align="center" style="width:1300px; text-align:center; background-color: #FFFFFF;" >
+            <div style="float:left;width:920px; height:320px; margin: 0 20px 0 0; background-color: #FFFFFF; text-align:left;" class="content">
+                <div style="float:left; width:300px;">
+                <h2> Fractal Options </h2>
+                </br>
+                <ul>
+                    <li> <a href="BinaryFractalCanvas.html">Binary Fractal Trees (as seen on right)</a></li>
+                </br>
+                    <li> <a href="JuliaSetCanvas.html"> Julia Set Fractals </a> </li>
+                </br>
+                    <li> <a href="MendelbrotCanvas.html"> Mendelbrot Set Fractals </a> </li>
+                </br>
+                    <li> <a href="IFS.html"> Iterated Function System </a> </li>
+                </ul>
+            </div>
+                
+                <div style="float:left;width:600px; height:300px; background-color: #FFFFFF; text-align:left; padding-left:0px; padding-right:0px; padding-top:0px" >
+
+                <canvas id="BinaryFractalCanvas" width="600" height="300">
+                Your browser does not support HTML5 Canvas.
+                </canvas>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--
+<canvas id="FernCanvas" width="500" height="500" style="border:1px solid #000000;">
+Your browser does not support HTML5 Canvas.
+</canvas>
+
+<canvas id="JuliaCanvas" width="500" height="500" style="border:1px solid #000000;">
+Your browser does not support HTML5 Canvas.
+</canvas>
+-->
+
+<script>
+
+/*$("#Angle1").input( function() {
+    document.getElementById('Angle1Text').value = document.getElementById('Angle1').value;
+    DrawTree();
+})*/
+
+var canvasHeight = 500;
+var canvasWidth = 500;
+
+var c = document.getElementById("BinaryFractalCanvas");
+var ctx = c.getContext("2d");
+ctx.fillStyle = "#FFFFFF";
+ctx.fillRect(0,0,500,500);
+
+function drawBiTree(startingX, startingY, newRadius, decreaseL, decreaseR, startingAngle, treeAngleL, treeAngleR, iter)
+{
+
+    var newX1 = startingX + newRadius * Math.cos(startingAngle + treeAngleL);
+    var newY1 = startingY - newRadius * Math.sin(startingAngle + treeAngleL);
+
+    var newX3 = startingX + newRadius * Math.cos(startingAngle - treeAngleR);
+    var newY3 = startingY - newRadius * Math.sin(startingAngle - treeAngleR);
+
+    ctx.beginPath();
+
+    ctx.moveTo(startingX, startingY);
+    ctx.lineTo(newX3, newY3);
+
+    ctx.moveTo(startingX, startingY);
+    ctx.lineTo(newX1, newY1);
+
+    ctx.lineWidth = 11 * Math.pow(decreaseL,iter);
+
+    if (newRadius < 10) ctx.strokeStyle = "green";
+    else ctx.strokeStyle = "brown";
+
+    ctx.stroke();
+
+    if (iter < 12)
+    {
+        setTimeout( function() {drawBiTree(newX1, newY1, newRadius * decreaseL, decreaseL, decreaseR, startingAngle + treeAngleL, treeAngleL, treeAngleR, iter+1)}, 1);
+    
+        setTimeout( function() {drawBiTree(newX3, newY3, newRadius * decreaseR, decreaseL, decreaseR, startingAngle - treeAngleR, treeAngleL, treeAngleR, iter+1)}, 1);
+    }
+}
+
+ctx.strokeStyle = "brown";
+    ctx.lineWidth = 11;
+    ctx.beginPath();
+
+    ctx.moveTo(canvasWidth / 2, canvasHeight - 50);
+    ctx.lineTo(canvasWidth / 2, canvasHeight / 4 * 3 - 200);
+    ctx.stroke();
+
+drawBiTree(canvasWidth / 2, canvasHeight / 4 * 3 - 200, canvasHeight/4 * 0.6,  0.6, 0.6, 90 * Math.PI / 180, 40 * Math.PI / 180, 40 * Math.PI / 180, 1);
+
+ctx.strokeStyle = "brown";
+    ctx.lineWidth = 11;
+    ctx.beginPath();
+
+    ctx.moveTo(canvasWidth / 2 - 180,canvasHeight - 50);
+    ctx.lineTo(canvasWidth / 2 - 180,canvasHeight / 4 * 3 - 220);
+    ctx.stroke();
+
+drawBiTree(canvasWidth / 2 - 180, canvasHeight / 4 * 3 - 220, canvasHeight/4 * 0.5,  0.5, 0.5, 90 * Math.PI / 180, 20 * Math.PI / 180, 20 * Math.PI / 180, 1);
+
+ctx.strokeStyle = "brown";
+    ctx.lineWidth = 11;
+    ctx.beginPath();
+
+    ctx.moveTo(canvasWidth / 2 + 100,canvasHeight - 50);
+    ctx.lineTo(canvasWidth / 2 + 100,canvasHeight / 4 * 2 - 50);
+    ctx.stroke();
+
+drawBiTree(canvasWidth / 2 + 100, canvasHeight / 4 * 2 - 50, canvasHeight/4 * 0.4,  0.6, 0.4, 90 * Math.PI / 180, 50 * Math.PI / 180, 60 * Math.PI / 180, 1);
+
+ctx.strokeStyle = "brown";
+    ctx.lineWidth = 11;
+    ctx.beginPath();
+
+    ctx.moveTo(canvasWidth / 2 + 180,canvasHeight - 50);
+    ctx.lineTo(canvasWidth / 2 + 180,canvasHeight / 4 * 3 - 180);
+    ctx.stroke();
+
+drawBiTree(canvasWidth / 2 + 180, canvasHeight / 4 * 3 - 180, canvasHeight/4 * 0.5,  0.71, 0.51, 90 * Math.PI / 180, 21 * Math.PI / 180, 108 * Math.PI / 180, 1);
+
+</script>
+</body>
+</html>

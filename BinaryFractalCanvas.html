@@ -1,0 +1,249 @@
+<!DOCTYPE HTML>
+<html lang = "en-US">
+<head><title>Binary Fractal Tree Viewer </title></head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="style/style.css" media="all" />
+<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="style/js/jquery-1.5.min.js"></script>
+
+<script type="text/javascript">
+    
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-36255649-1']);
+    _gaq.push(['_trackPageview']);
+    
+    (function() {
+     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+    
+</script>
+
+<body>
+
+	<!-- Begin Header Wrapper -->
+    <div id="page-top">
+        <div id="header-wrapper">
+            <!-- Begin Header -->
+            <div id="header">
+                <div id="logo" style="bottom:10px"><a href="index.html"><p style="font-family: 'Raleway', sans-serif; font-size:310%"> Michael Weingert</p> </a></div>
+                <!-- Logo -->
+                <!-- Begin Menu -->
+                <div id="menu-wrapper">
+                    <div id="smoothmenu1" class="ddsmoothmenu" style="font-size:150%">
+                        <ul>
+                        	<li><a href="FractalHome.html">Home</a> </li>
+                            <li><a href="BinaryFractalCanvas.html" class="selected">Binary Tree</a> </li>
+                            <li><a href="JuliaSetCanvas.html" >Julia Set</a>
+                            </li>
+                            <li><a href="MendelbrotCanvas.html" >Mendelbrot Set</a></li>
+                            <li><a href="IFS.html">Iterated Function Systems</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- End Header -->
+        </div>
+    </div>
+	</br>
+	</br>
+	</br></br>
+
+<div id="wrapper">
+
+		<div align="center" style="width:1300px; text-align:center; background-color: #FFFFFF;" >
+            <div style="float:left;width:560px; height:580px; margin: 0 20px 0 0; background-color: #FFFFFF; text-align:left;" class="content">
+
+            	<h1> Binary Fractal Tree Viewer </h1>
+
+				Angle1 <input type="range" id="Angle1" min="0" max="180" oninput="Angle1Change()"> <input id="Angle1Text" type="text" size="5" value="90" oninput = "Angle1TextChange()">
+			</br>
+				Angle2 <input type="range" id="Angle2" min="0" max="180" oninput="Angle2Change()"> <input id="Angle2Text" type="text" size="5" value="90" oninput = "Angle2TextChange()">
+				</br>
+				Radius1 <input type="range" id="Radius1" min="0" max="0.99" step="0.01" oninput="Radius1Change()"> <input id="Radius1Text" type="text" size="5" value="0.5" oninput = "Radius1TextChange()">
+				</br>
+				Radius2 <input type="range" id="Radius2" min="0" max="0.99" step="0.01" oninput="Radius2Change()"> <input id="Radius2Text" type="text" size="5" value="0.5" oninput = "Radius2TextChange()">
+
+			</div>
+				
+			<div style="float:left;width:600px; height:600px; background-color: #FFFFFF; text-align:left; padding-left:0px; padding-right:0px; padding-top:0px" class="content">
+
+			<canvas id="BinaryFractalCanvas" width="600" height="600" style="border:1px solid #000000;">
+			Your browser does not support HTML5 Canvas.
+			</canvas>
+
+			</div>
+		</div>
+
+<!--
+<canvas id="FernCanvas" width="500" height="500" style="border:1px solid #000000;">
+Your browser does not support HTML5 Canvas.
+</canvas>
+
+<canvas id="JuliaCanvas" width="500" height="500" style="border:1px solid #000000;">
+Your browser does not support HTML5 Canvas.
+</canvas>
+-->
+
+<script>
+
+/*$("#Angle1").input( function() {
+	document.getElementById('Angle1Text').value = document.getElementById('Angle1').value;
+	DrawTree();
+})*/
+
+var currRadL = 0;
+var currRadR = 0;
+var currAngL = 0;
+var currAngR = 0;
+
+function Angle1Change(){
+	document.getElementById('Angle1Text').value = document.getElementById('Angle1').value;
+	DrawTree();
+}
+
+function Angle1TextChange(){
+	document.getElementById('Angle1').value = document.getElementById('Angle1Text').value;
+	DrawTree();
+}
+
+function Angle2Change(){
+	document.getElementById('Angle2Text').value = document.getElementById('Angle2').value;
+	DrawTree();
+}
+
+function Angle2TextChange(){
+	document.getElementById('Angle2').value = document.getElementById('Angle2Text').value;
+	DrawTree();
+}
+
+function Radius1Change(){
+	document.getElementById('Radius1Text').value = document.getElementById('Radius1').value;
+	DrawTree();
+}
+
+function Radius1TextChange(){
+	document.getElementById('Radius1').value = document.getElementById('Radius1Text').value;
+	DrawTree();
+}
+
+function Radius2Change(){
+	document.getElementById('Radius2Text').value = document.getElementById('Radius2').value;
+	DrawTree();
+}
+
+function Radius2TextChange(){
+	document.getElementById('Radius2').value = document.getElementById('Radius2Text').value;
+	DrawTree();
+}
+
+function DrawTree() {
+	
+	ctx.clearRect(0, 0, 600, 600);
+
+	//ctx.canvas.width = ctx.canvas.width;
+	ctx.fillStyle = "#FFFFFF";
+	ctx.fillRect(0, 0, 600, 600);
+
+	ctx.strokeStyle = "brown";
+
+	ctx.lineWidth = 11;
+	ctx.beginPath();
+
+	ctx.moveTo(canvasWidth / 2 + 50,canvasHeight);
+	ctx.lineTo(canvasWidth / 2 + 50,canvasHeight / 4 * 3 - 40);
+
+	currRadL = document.getElementById('Radius1').value;
+	currRadR = document.getElementById('Radius2').value;
+	currAngL = document.getElementById('Angle1').value * Math.PI / 180;
+	currAngR = document.getElementById('Angle2').value * Math.PI / 180;
+
+	ctx.stroke();
+
+	drawBiTree(canvasWidth / 2 + 50, canvasHeight / 4 * 3 - 40, canvasHeight/4 * document.getElementById('Radius1').value, document.getElementById('Radius1').value, document.getElementById('Radius2').value, 90 * Math.PI / 180, document.getElementById('Angle1').value * Math.PI / 180, document.getElementById('Angle2').value * Math.PI / 180, 1);
+}
+
+var canvasHeight = 500;
+var canvasWidth = 500;
+
+var c = document.getElementById("BinaryFractalCanvas");
+var ctx = c.getContext("2d");
+ctx.fillStyle = "#FFFFFF";
+ctx.fillRect(0,0,500,500);
+
+
+//drawBiTree(canvasWidth / 2, canvasHeight / 4 * 3, canvasHeight/4 * 0.6, 0.6, 90 * Math.PI / 180, 40 * Math.PI / 180, 1);
+
+function drawBiTree(startingX, startingY, newRadius, decreaseL, decreaseR, startingAngle, treeAngleL, treeAngleR, iter)
+{
+	var newX1 = startingX + newRadius * Math.cos(startingAngle + treeAngleL);
+	var newY1 = startingY - newRadius * Math.sin(startingAngle + treeAngleL);
+
+	var	newX3 = startingX + newRadius * Math.cos(startingAngle - treeAngleR);
+	var newY3 = startingY - newRadius * Math.sin(startingAngle - treeAngleR);
+
+	ctx.beginPath();
+
+	if ( (currRadL != decreaseL) || (currAngL != treeAngleL) || (currRadR != decreaseR) || (currAngR != treeAngleR) )
+		return;
+
+	ctx.moveTo(startingX, startingY);
+	ctx.lineTo(newX3, newY3);
+
+	ctx.moveTo(startingX, startingY);
+	ctx.lineTo(newX1, newY1);
+
+	ctx.lineWidth = 11 * Math.pow(decreaseL,iter);
+
+	if (newRadius < 10) ctx.strokeStyle = "green";
+	else ctx.strokeStyle = "brown";
+
+	ctx.stroke();
+
+	if (iter < 11)
+	{
+		setTimeout( function() {drawBiTree(newX1, newY1, newRadius * decreaseL, decreaseL, decreaseR, startingAngle + treeAngleL, treeAngleL, treeAngleR, iter+1)}, 1);
+	
+		setTimeout( function() {drawBiTree(newX3, newY3, newRadius * decreaseR, decreaseL, decreaseR, startingAngle - treeAngleR, treeAngleL, treeAngleR, iter+1)}, 1);
+	}
+}
+
+function drawTriTree(startingX, startingY, newRadius, decrease, startingAngle, treeAngle)
+{
+	var newX1 = startingX + newRadius * Math.cos(startingAngle + treeAngle);
+	var newY1 = startingY + newRadius * Math.sin(startingAngle + treeAngle);
+
+	var newX2 = startingX + newRadius * Math.cos(startingAngle);
+	var newY2 = startingY + newRadius * Math.sin(startingAngle);
+
+	var	newX3 = startingX + newRadius * Math.cos(startingAngle - treeAngle);
+	var newY3 = startingY + newRadius * Math.sin(startingAngle - treeAngle);
+
+	ctx.moveTo(startingX, startingY);
+	ctx.lineTo(newX3, newY3);
+
+	ctx.moveTo(startingX, startingY);
+	ctx.lineTo(newX1, newY1);
+
+	ctx.moveTo(startingX, startingY);
+	ctx.lineTo(newX2, newY2);
+
+	ctx.stroke();
+
+	if (newRadius > 2)
+	{
+		setTimeout( function() {drawTriTree(newX1, newY1, newRadius * decrease, startingAngle + treeAngle, treeAngle)}, 500);
+		setTimeout( function() {drawTriTree(newX2, newY2, newRadius * decrease, startingAngle , treeAngle)}, 500);
+		setTimeout( function() {drawTriTree(newX3, newY3, newRadius * decrease, startingAngle - treeAngle, treeAngle)}, 500);
+	}
+}
+
+DrawTree();
+
+
+</script>
+
+</body>
+
+</html>

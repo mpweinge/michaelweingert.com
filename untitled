@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html lang = "en-US">
+<head><title>Fractal Home</title></head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="style/style.css" media="all" />
+<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="style/js/jquery-1.5.min.js"></script>
+
+<script type="text/javascript">
+    
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-36255649-1']);
+    _gaq.push(['_trackPageview']);
+    
+    (function() {
+     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+    
+</script>
+
+<body>
+
+	<!-- Begin Header Wrapper -->
+    <div id="page-top">
+        <div id="header-wrapper">
+            <!-- Begin Header -->
+            <div id="header">
+                <div id="logo" style="bottom:10px"><a href="index.html"><p style="font-family: 'Raleway', sans-serif; font-size:310%"> Michael Weingert</p> </a></div>
+                <!-- Logo -->
+                <!-- Begin Menu -->
+                <div id="menu-wrapper">
+                    <div id="smoothmenu1" class="ddsmoothmenu" style="font-size:150%">
+                        <ul>
+                        	<li><a href="FractalHome.html">Home</a> </li>
+                            <li><a href="BinaryFractalCanvas.html" class="selected">Binary Tree</a> </li>
+                            <li><a href="JuliaSetCanvas.html" >Julia Set</a>
+                            </li>
+                            <li><a href="MendelbrotCanvas.html" >Mendelbrot Set</a></li>
+                            <li><a href="IFS.html">Iterated Function Systems</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- End Header -->
+        </div>
+    </div>
+	</br>
+	</br>
+	</br></br>

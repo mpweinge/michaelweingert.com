@@ -50,20 +50,41 @@
 	</br>
 	</br></br>
 
+	<div id="wrapper">
+        <div class="content" style="width:980px">
+            <h1>
+                Binary Fractal Trees
+            </h1>
+            <p>
+                Binary Fractal Trees are basic fractals that resemble trees. From each branch stems two branches with variable radiuses, and at variable angles. This pattern repeats infinitely to create the tree. 
+            </p>
+            <p>
+                These trees are rendered to a depth of 11 iterations. 
+            </p>
+
+            <p>
+            	The angle of each branch can be adjusted as well as the radius (length) of each branch as a fraction of the branch that preceeded it. 
+			</p>
+			<p>
+                The tree will update in real time in response to the parameter selection. 
+            </p>
+        </div>
+    </div>
+
 <div id="wrapper">
 
 		<div align="center" style="width:1300px; text-align:center; background-color: #FFFFFF;" >
             <div style="float:left;width:560px; height:580px; margin: 0 20px 0 0; background-color: #FFFFFF; text-align:left;" class="content">
 
             	<h1> Binary Fractal Tree Viewer </h1>
-
-				Angle1 <input type="range" id="Angle1" min="0" max="180" oninput="Angle1Change()"> <input id="Angle1Text" type="text" size="5" value="90" oninput = "Angle1TextChange()">
 			</br>
-				Angle2 <input type="range" id="Angle2" min="0" max="180" oninput="Angle2Change()"> <input id="Angle2Text" type="text" size="5" value="90" oninput = "Angle2TextChange()">
-				</br>
-				Radius1 <input type="range" id="Radius1" min="0" max="0.99" step="0.01" oninput="Radius1Change()"> <input id="Radius1Text" type="text" size="5" value="0.5" oninput = "Radius1TextChange()">
-				</br>
-				Radius2 <input type="range" id="Radius2" min="0" max="0.99" step="0.01" oninput="Radius2Change()"> <input id="Radius2Text" type="text" size="5" value="0.5" oninput = "Radius2TextChange()">
+				Angle1 <input type="range" id="Angle1" min="0" max="180" oninput="Angle1Change()" value = "40"> <input id="Angle1Text" type="text" size="5" value="40" oninput = "Angle1TextChange()">
+			</br> </br>
+				Angle2 <input type="range" id="Angle2" min="0" max="180" oninput="Angle2Change()" value = "40"> <input id="Angle2Text" type="text" size="5" value="40" oninput = "Angle2TextChange()">
+				</br> </br>
+				Radius1 <input type="range" id="Radius1" min="0" max="0.99" step="0.01" oninput="Radius1Change()" value="0.6"> <input id="Radius1Text" type="text" size="5" value="0.6" oninput = "Radius1TextChange()">
+				</br> </br>
+				Radius2 <input type="range" id="Radius2" min="0" max="0.99" step="0.01" oninput="Radius2Change()" value="0.6"> <input id="Radius2Text" type="text" size="5" value="0.6" oninput = "Radius2TextChange()">
 
 			</div>
 				
@@ -243,6 +264,18 @@ DrawTree();
 
 
 </script>
+<div id="footer-wrapper">
+    <div id="footer">
+        <div id="footer-content">
+            
+            <!-- Begin Copyright -->
+            <div id="copyright">
+                <p>© Copyright 2014 | Michael Weingert</p>
+            </div>
+            <!-- End Copyright -->
+        </div>
+    </div>
+</div>
 
 </body>
 

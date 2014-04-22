@@ -1,0 +1,508 @@
+<!DOCTYPE HTML>
+<html lang = "en-US">
+<head><title>Iterated Function Systems</title></head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="style/style.css" media="all" />
+<!--<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>-->
+<script type="text/javascript" src="style/js/jquery-1.5.min.js"></script>
+
+<script type="text/javascript">
+    
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-36255649-1']);
+    _gaq.push(['_trackPageview']);
+    
+    (function() {
+     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+    
+</script>
+
+<body>
+	<!-- Begin Header Wrapper -->
+    <div id="page-top">
+        <div id="header-wrapper">
+            <!-- Begin Header -->
+            <div id="header">
+                <div id="logo" style="bottom:10px"><a href="index.html"><p style="font-family: 'Raleway', sans-serif; font-size:310%"> Michael Weingert</p> </a></div>
+                <!-- Logo -->
+                <!-- Begin Menu -->
+                <div id="menu-wrapper">
+                    <div id="smoothmenu1" class="ddsmoothmenu" style="font-size:150%">
+                        <ul>
+                        	<li><a href="FractalHome.html">Home</a> </li>
+                            <li><a href="BinaryFractalCanvas.html">Binary Tree</a> </li>
+                            <li><a href="JuliaSetCanvas.html" >Julia Set</a>
+                            </li>
+                            <li><a href="MendelbrotCanvas.html" >Mendelbrot Set</a></li>
+                            <li><a href="IFS.html" class="selected">Iterated Function Systems</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- End Header -->
+        </div>
+    </div>
+	</br>
+	</br>
+	</br></br>
+	<div id="wrapper">
+        <div class="content" style="width:980px">
+            <h1>
+                Iterated Function Systems
+            </h1>
+            <p>
+                Iterated Function Systems (IFS) are created by repeatedely scaling, transforming, and rotating a shape to create self-similar shapes. These transformations are done by repeated application of transformation functions.
+            </p>
+            <p>
+                The barnsley fern is a famous IFS. It is comprised of four functions, each with a probability of being utilized to create the next iteration of the shape. 
+            </p>
+
+            <p>
+            	The four barnsley fern functions are of the form </br>
+            	f  = [a  b] [x] + [e] </br>
+            	 .   = [c  d] [y] + [f] </br>
+            	We can see that applying f produces a new x of xn = ax + by + e, and a new y of yn = cx + dy + f. 
+			</p>
+			<p>
+                You can modify the four functions that produce the fern below, modify the colour, or examine four different types of ferns that are all modifications of the four functions present. 
+            </p>
+        </div>
+    </div>
+	<div id="wrapper">
+
+		<div align="center" style="width:1200px; text-align:center; background-color: #FFFFFF;" >
+            <div style="float:left;width:460px; height:480px; margin: 0 20px 0 0; background-color: #FFFFFF; text-align:left;" class="content">
+
+            	<h1> Iterated Function Systems </h1>
+            	</br>
+
+				f1 = [ <input id="f1a" type="text" size="5" value="0" oninput="colTextChange()"> <input id="f1b" type="text" size="5" value="0" oninput="colTextChange()"> ] [ x ] + [<input id="f1c" type="text" size="5" value="0" oninput="colTextChange()">]
+				</br>
+				.   .  .  .    [ <input id="f1d" type="text" size="5" value="0" oninput="colTextChange()"> <input id="f1e" type="text" size="5" value="0.16" oninput="colTextChange()"> ] [ y ] + [<input id="f1f" type="text" size="5" value="0" oninput="colTextChange()">] . Probability = <input id="f1P" type="text" size="5" value="0.01" oninput="colTextChange()">
+			</br></br>
+
+				f2 = [ <input id="f2a" type="text" size="5" value="0.85" oninput="colTextChange()"> <input id="f2b" type="text" size="5" value="0.04" oninput="colTextChange()"> ] [ x ] + [<input id="f2c" type="text" size="5" value="0" oninput="colTextChange()">]
+				</br>
+				.   .  .  .    [ <input id="f2d" type="text" size="5" value="-0.04" oninput="colTextChange()"> <input id="f2e" type="text" size="5" value="0.85" oninput="colTextChange()"> ] [ y ] + [<input id="f2f" type="text" size="5" value="1.6" oninput="colTextChange()">] . Probability = <input id="f2P" type="text" size="5" value="0.85" oninput="colTextChange()">
+</br></br>
+				f3 = [ <input id="f3a" type="text" size="5" value="0.2" oninput="colTextChange()"> <input id="f3b" type="text" size="5" value="-0.26" oninput="colTextChange()"> ] [ x ] + [<input id="f3c" type="text" size="5" value="0" oninput="colTextChange()">]
+				</br>
+				.   .  .  .    [ <input id="f3d" type="text" size="5" value="0.23" oninput="colTextChange()"> <input id="f3e" type="text" size="5" value="0.22" oninput="colTextChange()"> ] [ y ] + [<input id="f3f" type="text" size="5" value="1.6" oninput="colTextChange()">] . Probability = <input id="f3P" type="text" size="5" value="0.07" oninput="colTextChange()">
+</br></br>
+				f4 = [ <input id="f4a" type="text" size="5" value="-0.15" oninput="colTextChange()"> <input id="f4b" type="text" size="5" value="0.28" oninput="colTextChange()"> ] [ x ] + [<input id="f4c" type="text" size="5" value="0" oninput="colTextChange()">]
+				</br>
+				.   .  .  .    [ <input id="f4d" type="text" size="5" value="0.26" oninput="colTextChange()"> <input id="f4e" type="text" size="5" value="0.24" oninput="colTextChange()"> ] [ y ] + [<input id="f4f" type="text" size="5" value="0.44" oninput="colTextChange()">] . Probability = <input id="f4P" type="text" size="5" value="0.07" oninput="colTextChange()">
+				</br>
+				</br>
+
+				Fractal Colour <input type="color" id="fractalColour" value ="#027A00" onchange="colChange()">
+
+				</br> </br>
+
+				<h2> Preset IFS </h2>	
+				<a href="javascript:CreateBarnsley()"> Barnsley Fern </a> </br>
+				<a href="javascript:CreateLeptosporangiate()"> Leptosporangiate Fern </a> </br>
+				<a href="javascript:CreateThelypteridaceae()"> Thelypteridaceae Fern </a> </br>
+				<a href="javascript:CreateCulcita()"> Culcita Fern </a>
+
+				</div>
+		
+            <div style="float:left;width:500px; height:500px; background-color: #FFFFFF; text-align:left; padding-left:0px; padding-right:0px; padding-top:0px" class="content">
+
+			<canvas id="mendelbrotCanvas" width="500" height="500" onmousedown="MouseDown(event)" onmousemove="MouseMove(event)" onmouseup="MouseUp(event)">
+			Your browser does not support HTML5 Canvas.
+			</canvas>
+
+			</div>
+		</div>
+
+<script>
+
+var mouseDown = false;
+var mousePosx = 0;
+var mousePosy = 0;
+
+var xMin = -2;
+var xMax = 2;
+var yMin = -2;
+var yMax = 2;
+
+var imageData;
+
+var maxIndex = 0;
+
+
+function CreateCulcita() {
+	document.getElementById('f1a').value = 0;
+	document.getElementById('f1b').value = 0;
+	document.getElementById('f1d').value = 0;
+	document.getElementById('f1e').value = 0.25;
+	document.getElementById('f1c').value = 0;
+	document.getElementById('f1f').value = -0.14;
+	document.getElementById('f1P').value = 0.02;
+
+	document.getElementById('f2a').value = 0.85;
+	document.getElementById('f2b').value = 0.02;
+	document.getElementById('f2d').value = -0.02;
+	document.getElementById('f2e').value = 0.83;
+	document.getElementById('f2c').value = 0;
+	document.getElementById('f2f').value = 1;
+	document.getElementById('f2P').value = 0.84;
+
+	document.getElementById('f3a').value = 0.09;
+	document.getElementById('f3b').value = -0.28;
+	document.getElementById('f3d').value = 0.3;
+	document.getElementById('f3e').value = 0.11;
+	document.getElementById('f3c').value = 0;
+	document.getElementById('f3f').value = 0.6;
+	document.getElementById('f3P').value = 0.07;
+
+	document.getElementById('f4a').value = -0.09;
+	document.getElementById('f4b').value = 0.28;
+	document.getElementById('f4d').value = 0.3;
+	document.getElementById('f4e').value = 0.09;
+	document.getElementById('f4c').value = 0;
+	document.getElementById('f4f').value = 0.7;
+	document.getElementById('f4P').value = 0.07;
+
+	colSelChange();
+}
+
+function CreateThelypteridaceae() {
+	document.getElementById('f1a').value = 0;
+	document.getElementById('f1b').value = 0;
+	document.getElementById('f1d').value = 0;
+	document.getElementById('f1e').value = 0.25;
+	document.getElementById('f1c').value = 0;
+	document.getElementById('f1f').value = -0.4;
+	document.getElementById('f1P').value = 0.02;
+
+	document.getElementById('f2a').value = 0.95;
+	document.getElementById('f2b').value = 0.005;
+	document.getElementById('f2d').value = -0.005;
+	document.getElementById('f2e').value = 0.93;
+	document.getElementById('f2c').value = -0.002;
+	document.getElementById('f2f').value = 0.5;
+	document.getElementById('f2P').value = 0.84;
+
+	document.getElementById('f3a').value = 0.035;
+	document.getElementById('f3b').value = -0.2;
+	document.getElementById('f3d').value = 0.16;
+	document.getElementById('f3e').value = 0.04;
+	document.getElementById('f3c').value = -0.09;
+	document.getElementById('f3f').value = 0.02;
+	document.getElementById('f3P').value = 0.07;
+
+	document.getElementById('f4a').value = -0.04;
+	document.getElementById('f4b').value = 0.2;
+	document.getElementById('f4d').value = 0.16;
+	document.getElementById('f4e').value = 0.04;
+	document.getElementById('f4c').value = 0.083;
+	document.getElementById('f4f').value = 0.12;
+	document.getElementById('f4P').value = 0.07;
+
+	colSelChange();
+}
+
+function CreateLeptosporangiate() {
+	document.getElementById('f1a').value = 0;
+	document.getElementById('f1b').value = 0;
+	document.getElementById('f1d').value = 0;
+	document.getElementById('f1e').value = 0.25;
+	document.getElementById('f1c').value = 0;
+	document.getElementById('f1f').value = -0.14;
+	document.getElementById('f1P').value = 0.02;
+
+	document.getElementById('f2a').value = 0.85;
+	document.getElementById('f2b').value = 0.02;
+	document.getElementById('f2d').value = -0.02;
+	document.getElementById('f2e').value = 0.83;
+	document.getElementById('f2c').value = 0;
+	document.getElementById('f2f').value = 1;
+	document.getElementById('f2P').value = 0.84;
+
+	document.getElementById('f3a').value = 0.09;
+	document.getElementById('f3b').value = -0.28;
+	document.getElementById('f3d').value = 0.3;
+	document.getElementById('f3e').value = 0.11;
+	document.getElementById('f3c').value = 0;
+	document.getElementById('f3f').value = 0.6;
+	document.getElementById('f3P').value = 0.07;
+
+	document.getElementById('f4a').value = -0.09;
+	document.getElementById('f4b').value = 0.28;
+	document.getElementById('f4d').value = 0.3;
+	document.getElementById('f4e').value = 0.09;
+	document.getElementById('f4c').value = 0;
+	document.getElementById('f4f').value = 0.7;
+	document.getElementById('f4P').value = 0.07;
+
+	colSelChange();
+}
+
+function CreateBarnsley() {
+	document.getElementById('f1a').value = 0;
+	document.getElementById('f1b').value = 0;
+	document.getElementById('f1d').value = 0;
+	document.getElementById('f1e').value = 0.16;
+	document.getElementById('f1c').value = 0;
+	document.getElementById('f1f').value = 0;
+	document.getElementById('f1P').value = 0.01;
+
+	document.getElementById('f2a').value = 0.85;
+	document.getElementById('f2b').value = 0.04;
+	document.getElementById('f2d').value = -0.04;
+	document.getElementById('f2e').value = 0.85;
+	document.getElementById('f2c').value = 0;
+	document.getElementById('f2f').value = 1.6;
+	document.getElementById('f2P').value = 0.85;
+
+	document.getElementById('f3a').value = 0.2;
+	document.getElementById('f3b').value = -0.26;
+	document.getElementById('f3d').value = 0.23;
+	document.getElementById('f3e').value = 0.22;
+	document.getElementById('f3c').value = 0;
+	document.getElementById('f3f').value = 1.6;
+	document.getElementById('f3P').value = 0.07;
+
+	document.getElementById('f4a').value = -0.15;
+	document.getElementById('f4b').value = 0.28;
+	document.getElementById('f4d').value = 0.26;
+	document.getElementById('f4e').value = 0.24;
+	document.getElementById('f4c').value = 0;
+	document.getElementById('f4f').value = 0.44;
+	document.getElementById('f4P').value = 0.07;
+
+	colSelChange();
+}
+
+
+function colSelChange() {
+
+	mendelbrotObj = document.getElementById("mendelbrotCanvas");
+	
+	//mendelbrotObj.canvas.width = mendelbrotObj.canvas.width;
+
+	var ctx3 = mendelbrotObj.getContext("2d");
+
+	ctx3.clearRect(-250, -500, 500, 700);
+	ctx3.fillStyle = "#FFFFFF";
+	ctx3.fillRect(-250, -500, 500, 700);
+
+	barnsley(ctx3);
+}
+
+function colChange() {
+	colSelChange();
+}
+
+function colTextChange() {
+	colSelChange();
+}
+
+function MouseDown(e) {
+	mouseDown = true;
+	//Mouse coordinates relative to canvas
+
+	var mendelbrotObj = document.getElementById("mendelbrotCanvas");
+	var ctx3 = mendelbrotObj.getContext("2d");
+
+	mousePosx = e.x - $("#mendelbrotCanvas").offset().left - 250;
+	mousePosy = e.y - $("#mendelbrotCanvas").offset().top - 250;
+
+	imageData = ctx3.getImageData(0,0,500,500);
+}
+
+function MouseMove(e) {
+	if (mouseDown) {
+		//Draw a little box to show what's up
+		var mendelbrotObj = document.getElementById("mendelbrotCanvas");
+		var ctx3 = mendelbrotObj.getContext("2d");
+
+		var mouseX = e.x - $("#mendelbrotCanvas").offset().left - 250;
+		var mouseY = e.y - $("#mendelbrotCanvas").offset().top - 250;
+
+		var minX = mouseX < mousePosx ? mouseX : mousePosx;
+		var maxY = mouseY < mousePosy ? mouseY : mousePosy;
+
+		ctx3.strokeStyle = "red";
+		ctx3.putImageData(imageData, 0, 0);
+		ctx3.strokeRect(minX, maxY, Math.abs(mouseX - mousePosx), Math.abs(mouseY - mousePosy));
+	}
+}
+
+function MouseUp(e) {
+
+	var mouseX = e.x - $("#mendelbrotCanvas").offset().left - 250;
+	var mouseY = e.y - $("#mendelbrotCanvas").offset().top - 250;
+	
+	//Going from mousePosx to
+
+	var Left = mouseX < mousePosx ? mouseX : mousePosx;
+	var Right = mouseX > mousePosx ? mouseX : mousePosx;
+	var Top = mouseY < mousePosy ? mouseY : mousePosy;
+	var Bottom = mouseY > mousePosy ? mouseY : mousePosy;
+
+	Top = Top * -1;
+	Bottom = Bottom * -1;
+
+	var newLeftBound = (xMin+xMax)/2 + (Left / 500) * (xMax - xMin);
+	var newRightBound = (xMin+xMax)/2 + (Right / 500) * (xMax - xMin);
+
+	var newUpBound = (yMin+yMax) / 2 + (Top / 500) * (yMax - yMin);
+	//if (newUpBound < 0) newUpBound = 2 + newUpBound;
+	//else newUpBound = 2 - newUpBound;
+
+	var newBottomBound = (yMin+yMax)/2 + (Bottom / 500) * (yMax - yMin);
+
+	var mendelbrotObj = document.getElementById("mendelbrotCanvas");
+	var ctx3 = mendelbrotObj.getContext("2d");
+
+	mendelbrot(ctx3, newLeftBound, newRightBound, newBottomBound, newUpBound);
+
+	mouseDown = false;
+	mousePosx = 0;
+	mousePosy = 0;
+
+	xMin = newLeftBound;
+	xMax = newRightBound;
+
+	yMin = newBottomBound;
+	yMax = newUpBound;
+}
+
+	mendelbrotObj = document.getElementById("mendelbrotCanvas");
+	var ctx3 = mendelbrotObj.getContext("2d");
+
+
+	ctx3.clearRect(0, 0, 600, 600);
+	ctx3.fillStyle = "#FFFFFF";
+	ctx3.fillRect(0, 0, 600, 600);
+	ctx3.translate(ctx3.canvas.width / 2, ctx3.canvas.height / 6 * 5);
+
+	//ctx3.translate(ctx3.canvas.width / 2, ctx3.canvas.height / 2);
+	//mendelbrot(ctx3, -2, 2, -2, 2);
+
+	barnsley(ctx3);
+
+function barnsley(ctx) {
+
+	//Load in probabilities and all values from cells
+	this.f1aVal = parseFloat(document.getElementById('f1a').value);
+	this.f1bVal = parseFloat(document.getElementById('f1b').value);
+	this.f1cVal = parseFloat(document.getElementById('f1c').value);
+	this.f1dVal = parseFloat(document.getElementById('f1d').value);
+	this.f1eVal = parseFloat(document.getElementById('f1e').value);
+	this.f1fVal = parseFloat(document.getElementById('f1f').value);
+	this.f1Prob = parseFloat(document.getElementById('f1P').value);
+
+	this.f2aVal = parseFloat(document.getElementById('f2a').value);
+	this.f2bVal = parseFloat(document.getElementById('f2b').value);
+	this.f2cVal = parseFloat(document.getElementById('f2c').value);
+	this.f2dVal = parseFloat(document.getElementById('f2d').value);
+	this.f2eVal = parseFloat(document.getElementById('f2e').value);
+	this.f2fVal = parseFloat(document.getElementById('f2f').value);
+	this.f2Prob = parseFloat(document.getElementById('f2P').value);
+	
+	this.f3aVal = parseFloat(document.getElementById('f3a').value);
+	this.f3bVal = parseFloat(document.getElementById('f3b').value);
+	this.f3cVal = parseFloat(document.getElementById('f3c').value);
+	this.f3dVal = parseFloat(document.getElementById('f3d').value);
+	this.f3eVal = parseFloat(document.getElementById('f3e').value);
+	this.f3fVal = parseFloat(document.getElementById('f3f').value);
+	this.f3Prob = parseFloat(document.getElementById('f3P').value);
+
+	this.f4aVal = parseFloat(document.getElementById('f4a').value);
+	this.f4bVal = parseFloat(document.getElementById('f4b').value);
+	this.f4cVal = parseFloat(document.getElementById('f4c').value);
+	this.f4dVal = parseFloat(document.getElementById('f4d').value);
+	this.f4eVal = parseFloat(document.getElementById('f4e').value);
+	this.f4fVal = parseFloat(document.getElementById('f4f').value);
+	this.f4Prob = parseFloat(document.getElementById('f4P').value);
+
+
+    ctx.fillStyle = $("#fractalColour").val();
+    var self = this;
+
+    this.itts = 200000;
+    this.x = 0;
+    this.y = 0;
+
+    this.main = function () {
+        for (var i = 0; i < itts; i++) {
+            var rand = Math.random();
+            if (rand < this.f1Prob) {
+                self.one();
+            } else if (rand < (this.f1Prob + this.f2Prob)) {
+                self.two();
+            } else if (rand < (this.f1Prob + this.f2Prob + this.f3Prob)) {
+                self.three();
+            } else {
+                self.four();
+            }
+        }
+    }
+
+    this.one = function () {
+        var xn = self.x;
+        var yn = self.y;
+        var zx = xn * this.f1aVal + this.f1bVal * yn + this.f1cVal;
+        var zy = xn * this.f1dVal + this.f1eVal * yn + this.f1fVal;
+        self.drawPoint(zx, zy);
+    }
+
+    this.two = function () {
+        var xn = self.x;
+        var yn = self.y;
+        var zx = xn * this.f2aVal + this.f2bVal * yn + this.f2cVal;
+        var zy = xn * this.f2dVal + this.f2eVal * yn + this.f2fVal;
+        self.drawPoint(zx, zy);
+    }
+
+    this.three = function () {
+        var xn = self.x;
+        var yn = self.y;
+        var zx = xn * this.f3aVal + this.f3bVal * yn + this.f3cVal;
+        var zy = xn * this.f3dVal + this.f3eVal * yn + this.f3fVal;
+        self.drawPoint(zx, zy);
+    }
+
+    this.four = function () {
+        var xn = self.x;
+        var yn = self.y;
+        var zx = xn * this.f4aVal + this.f4bVal * yn + this.f4cVal;
+        var zy = xn * this.f4dVal + this.f4eVal * yn + this.f4fVal;
+        self.drawPoint(zx, zy);
+    }
+
+    this.drawPoint = function (xn, yn) {
+        self.x = xn;
+        self.y = yn;
+        ctx.fillRect(xn*60, -yn*40, 1, 1);
+    }
+
+    this.main();
+}
+
+
+</script>
+
+<div id="footer-wrapper">
+    <div id="footer">
+        <div id="footer-content">
+            
+            <!-- Begin Copyright -->
+            <div id="copyright">
+                <p>© Copyright 2014 | Michael Weingert</p>
+            </div>
+            <!-- End Copyright -->
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>

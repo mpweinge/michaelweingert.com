@@ -48,6 +48,27 @@
 	</br>
 	</br>
 	</br></br>
+
+	<div id="wrapper">
+        <div class="content" style="width:980px">
+            <h1>
+                Mendelbrot Set
+            </h1>
+            <p>
+                The Mendelbrot Set is created by analyzing the iterates of 0 in functions of the form g(z) = z^2 + c. The variable c is in this case variable, and determined by the (x,y) coordinate of the pixel in the image. 
+            </p>
+            <p>
+                c = x + iy.  
+            </p>
+
+            <p>
+            	If 0 is bounded for some function g(z) = z^2 + c, then c is in the Mendelbrot set. This image is rendered using escape time approximation (ETA), and by evaluating the iterates of 0 at each pixel in the image.  
+			</p>
+			<p>
+                After changing parameters (ie. c, colour saturation, or colours) please be patient and wait for the graph to redraw as rendering the Mendelbrot set takes a few seconds to redraw. 
+            </p>
+        </div>
+    </div>
 	<div id="wrapper">
 
 		<div align="center" style="width:1200px; text-align:center; background-color: #FFFFFF;" >
@@ -60,11 +81,17 @@
 				</br>
 				</br>
 
-				Fractal Colour<input type="color" id="fractalColour" value ="#000000">
-				Base Colour <input type="color" id="baseColour" value="#000000">
-				End Colour <input type="color" id="endColour" value="#FFFFFF">
+				Fractal <input type="color" id="fractalColour" value ="#000000">
+				Background: Start <input type="color" id="baseColour" value="#000000">
+				End <input type="color" id="endColour" value="#FFFFFF">
 
 				<button onclick="colSelChange()"> Redraw </button>
+
+				</br> </br>
+
+				<p> Use your mouse to click and drag to zoom in on an area of interest. Click the 'reset' button below to reset the zoom. </p>
+
+				<button onclick="Reset()"> Reset Zoom </button>
 
 				</div>
 		
@@ -92,6 +119,19 @@ var imageData;
 
 var maxIndex = 0;
 
+function Reset() {
+	xMin = -2;
+	xMax = 2;
+
+	yMin = -2;
+	yMax = 2;
+
+	var mendelbrotObj = document.getElementById("mendelbrotCanvas");
+	var ctx3 = mendelbrotObj.getContext("2d");
+
+	mendelbrot(ctx3, -2, 2, -2, 2);
+}
+
 function colourToHexArray(colour){
   	var retArr = new Array();
   	retArr[0] = colour[1] + colour[2];
@@ -106,7 +146,7 @@ function colourToHexArray(colour){
 }
 
 function colSelChange() {
-
+	document.getElementById('colRangeText').value = document.getElementById('colRange').value;
 	baseColArr = colourToHexArray($("#baseColour").val());
 	endColArr = colourToHexArray($("#endColour").val());
 
@@ -206,11 +246,6 @@ function MouseUp(e) {
 
 	var newBottomBound = (yMin+yMax)/2 + (Bottom / 500) * (yMax - yMin);
 
-	var mendelbrotObj = document.getElementById("mendelbrotCanvas");
-	var ctx3 = mendelbrotObj.getContext("2d");
-
-	mendelbrot(ctx3, newLeftBound, newRightBound, newBottomBound, newUpBound);
-
 	mouseDown = false;
 	mousePosx = 0;
 	mousePosy = 0;
@@ -220,6 +255,11 @@ function MouseUp(e) {
 
 	yMin = newBottomBound;
 	yMax = newUpBound;
+
+	var mendelbrotObj = document.getElementById("mendelbrotCanvas");
+	var ctx3 = mendelbrotObj.getContext("2d");
+
+	mendelbrot(ctx3, newLeftBound, newRightBound, newBottomBound, newUpBound);
 }
 
 	mendelbrotObj = document.getElementById("mendelbrotCanvas");
@@ -259,6 +299,11 @@ function mendelbrot(ctx, left, right, bottom, top)
 		ctx.fillStyle = 'black';
 		numValues = 0;
 
+		baseColArr = colourToHexArray($("#baseColour").val());
+		endColArr = colourToHexArray($("#endColour").val());
+
+		var colIndex = 255 * parseFloat(document.getElementById('colRange').value);
+
 		for (var x = -250; x < 250; x++)
 		{
 			for (var y = -250; y < 250; y++)
@@ -275,7 +320,23 @@ function mendelbrot(ctx, left, right, bottom, top)
 
 						var shade = 255 - iter / 0.2;
 
-						ctx.fillStyle = "rgb(" + shade + "," + shade + "," + shade + ")";
+						//ctx.fillStyle = "rgb(" + shade + "," + shade + "," + shade + ")";
+						
+
+						if (iter < (colIndex * 0.75) )
+						{
+							var rShade = endColArr[0] - Math.floor(iter / colIndex * (endColArr[0] - baseColArr[0]));
+
+							var gShade = endColArr[1] - Math.floor(iter / colIndex * (endColArr[1] - baseColArr[1]));
+
+							var bShade = endColArr[2] - Math.floor(iter / colIndex * (endColArr[2] - baseColArr[2]));
+
+							ctx.fillStyle = "rgb(" + rShade + "," + gShade + "," + bShade + ")";
+						}
+						else
+						{
+							ctx.fillStyle = $("#fractalColour").val();
+						}
 						ctx.fillRect(x, -y, 1, 1);
 
 						valuesArray[x+250][y+250] = iter;
@@ -319,6 +380,19 @@ function mendelbrot(ctx, left, right, bottom, top)
 
 
 </script>
+
+<div id="footer-wrapper">
+    <div id="footer">
+        <div id="footer-content">
+            
+            <!-- Begin Copyright -->
+            <div id="copyright">
+                <p>© Copyright 2014 | Michael Weingert</p>
+            </div>
+            <!-- End Copyright -->
+        </div>
+    </div>
+</div>
 
 </body>
 

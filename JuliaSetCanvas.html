@@ -51,17 +51,39 @@
 </br></br>
 
 	<div id="wrapper">
+        <div class="content" style="width:980px">
+            <h1>
+                Julia Sets
+            </h1>
+            <p>
+                The Julia set is the series of fixed (repelling) points for the polynomial g(z) = z^2 + c where c is some complex number. By varying the value of c, different julia sets can be generated. 
+            </p>
+            <p>
+                This Julia set viewer uses escape time approximation (ETA) to generate the graph. See this pdf for more information. 
+            </p>
+
+            <p>
+            	The value of the complex number c, can be varied as well as the colour saturation (how dark to make points in the julia set, or near to the Julia set), as well as the colours of the fractal (points in the Julia set) and the background gradient (as we move further away from the Julia set).
+			</p>
+			<p>
+                After changing parameters (ie. c, colour saturation, or colours) please be patient and wait for the graph to redraw as rendering the julia set takes a few seconds to redraw. The graph will automatically redraw as the 'c' slider is moved, but will only redraw when the "redraw" button is pressed for the colours. 
+            </p>
+        </div>
+    </div>
+
+	<div id="wrapper">
 
 		<div align="center" style="width:1200px; text-align:center; background-color: #FFFFFF;" >
             <div style="float:left;width:460px; height:480px; margin: 0 20px 0 0; background-color: #FFFFFF; text-align:left;" class="content">
 
             	<h1> Julia Set Viewer </h1>
+            	</br>
 
 				Choose a range for c values of the form c = a + b * i
 				</br>
-				a <input type="range" id="cReal" min="-1" max="1" step = "0.01" value = "0" onchange="cChange()"> <input id="cRealText" type="text" size="5" value="0" onchange = "cTextChange()">
+				a <input type="range" id="cReal" min="-1" max="1" step = "0.01" value = "0" onchange="cChange()" oninput="sliderChange()"> <input id="cRealText" type="text" size="5" value="0" onchange = "cTextChange()">
 				</br>
-				b <input type="range" id="cImag" min="-1" max="1" step = "0.01" onchange="cChange()"> <input id="cImagText" type="text" size="5" value="1" onchange = "cTextChange()">
+				b <input type="range" id="cImag" min="-1" max="1" step = "0.01" onchange="cChange()" oninput="sliderChange()" value = "1"> <input id="cImagText" type="text" size="5" value="1" onchange = "cTextChange()">
 				</br>
 				</br>
 
@@ -69,11 +91,17 @@
 				</br>
 				</br>
 
-				Fractal Colour<input type="color" id="fractalColour" value ="#000000">
-				Base Colour <input type="color" id="baseColour" value="#000000">
-				End Colour <input type="color" id="endColour" value="#FFFFFF">
+				Fractal <input type="color" id="fractalColour" value ="#000000">
+				Background: Start <input type="color" id="baseColour" value="#000000">
+				End <input type="color" id="endColour" value="#FFFFFF">
 
 				<button onclick="colSelChange()"> Redraw </button>
+
+				</br> </br>
+
+				<p> Use your mouse to click and drag to zoom in on an area of interest. Click the 'reset' button below to reset the zoom. </p>
+
+				<button onclick="Reset()"> Reset Zoom </button>
 
 				</div>
 	<!--Iterations <input type="range" id="Radius1" min="0" max="0.99" step="0.01" oninput="Radius1Change()"> <input id="Radius1Text" type="text" size="5" value="0.5" oninput = "Radius1TextChange()">-->
@@ -108,6 +136,12 @@ var imageData;
 
 var maxIndex = 0;
 
+function sliderChange()
+{
+	document.getElementById('cRealText').value = document.getElementById('cReal').value;
+	document.getElementById('cImagText').value = document.getElementById('cImag').value;
+}
+
 function colourToHexArray(colour){
 	// Keep helper stuff in closures
   	var retArr = new Array();
@@ -123,7 +157,7 @@ function colourToHexArray(colour){
 }
 
 function colSelChange() {
-
+	document.getElementById('colRangeText').value = document.getElementById('colRange').value;
 	baseColArr = colourToHexArray($("#baseColour").val());
 	endColArr = colourToHexArray($("#endColour").val());
 
@@ -250,6 +284,19 @@ function MouseUp(e) {
 
 	yMin = newBottomBound;
 	yMax = newUpBound;
+}
+
+function Reset() {
+	xMin = -2;
+	xMax = 2;
+
+	yMin = -2;
+	yMax = 2;
+
+	var juliaObj = document.getElementById("JuliaCanvas");
+	var ctx3 = juliaObj.getContext("2d");
+
+	julia3(ctx3, parseFloat(document.getElementById('cRealText').value), parseFloat(document.getElementById('cImagText').value), -2, 2, -2, 2);
 }
 
 function cTextChange() {
@@ -727,6 +774,19 @@ function mendelbrot(ctx)
   </div>
   
 
+</div>
+
+<div id="footer-wrapper">
+    <div id="footer">
+        <div id="footer-content">
+            
+            <!-- Begin Copyright -->
+            <div id="copyright">
+                <p>© Copyright 2014 | Michael Weingert</p>
+            </div>
+            <!-- End Copyright -->
+        </div>
+    </div>
 </div>
 
 </body>

@@ -62,7 +62,7 @@
             </p>
 
             <p>
-            	If 0 is bounded for some function g(z) = z^2 + c, then c is in the Mendelbrot set. This image is rendered using escape time approximation (ETA), and by evaluating the iterates of 0 at each pixel in the image.  
+            	If 0 is bounded for some function g(z) = z^2 + c, then c is in the Mendelbrot set. This image is rendered using escape time approximation (ETA), and by evaluating the iterates of 0 at each pixel in the image. For more information see <a href="Computational_Representations_of_Fractals.pdf" target="_blank"> this pdf </a>. 
 			</p>
 			<p>
                 After changing parameters (ie. c, colour saturation, or colours) please be patient and wait for the graph to redraw as rendering the Mendelbrot set takes a few seconds to redraw. 
@@ -118,6 +118,25 @@ var yMax = 2;
 var imageData;
 
 var maxIndex = 0;
+
+function relMouseCoords(e){
+    var x;
+    var y;
+    if (e.pageX || e.pageY) {
+    	x = e.pageX;
+    	y = e.pageY;
+    }
+    else {
+    	x = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
+    	y = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+    }
+
+    x -= this.offsetLeft;
+    y -= this.offsetTop;
+
+    return {x:x, y:y}
+}
+HTMLCanvasElement.prototype.relMouseCoords = relMouseCoords;
 
 function Reset() {
 	xMin = -2;
@@ -198,8 +217,10 @@ function MouseDown(e) {
 	var mendelbrotObj = document.getElementById("mendelbrotCanvas");
 	var ctx3 = mendelbrotObj.getContext("2d");
 
-	mousePosx = e.x - $("#mendelbrotCanvas").offset().left - 250;
-	mousePosy = e.y - $("#mendelbrotCanvas").offset().top - 250;
+	coords = mendelbrotObj.relMouseCoords(e);
+
+		mousePosx = coords.x - 250;
+		mousePosy = coords.y - 250;
 
 	imageData = ctx3.getImageData(0,0,500,500);
 }
@@ -210,8 +231,10 @@ function MouseMove(e) {
 		var mendelbrotObj = document.getElementById("mendelbrotCanvas");
 		var ctx3 = mendelbrotObj.getContext("2d");
 
-		var mouseX = e.x - $("#mendelbrotCanvas").offset().left - 250;
-		var mouseY = e.y - $("#mendelbrotCanvas").offset().top - 250;
+		coords = mendelbrotObj.relMouseCoords(e);
+
+		mouseX = coords.x - 250;
+		mouseY = coords.y - 250;
 
 		var minX = mouseX < mousePosx ? mouseX : mousePosx;
 		var maxY = mouseY < mousePosy ? mouseY : mousePosy;
@@ -224,8 +247,12 @@ function MouseMove(e) {
 
 function MouseUp(e) {
 
-	var mouseX = e.x - $("#mendelbrotCanvas").offset().left - 250;
-	var mouseY = e.y - $("#mendelbrotCanvas").offset().top - 250;
+	var mendelbrotObj = document.getElementById("mendelbrotCanvas");
+
+	coords = mendelbrotObj.relMouseCoords(e);
+
+		mouseX = coords.x - 250;
+		mouseY = coords.y - 250;
 	
 	//Going from mousePosx to
 
@@ -337,6 +364,7 @@ function mendelbrot(ctx, left, right, bottom, top)
 						{
 							ctx.fillStyle = $("#fractalColour").val();
 						}
+
 						ctx.fillRect(x, -y, 1, 1);
 
 						valuesArray[x+250][y+250] = iter;

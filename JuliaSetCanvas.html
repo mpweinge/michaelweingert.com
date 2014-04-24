@@ -59,7 +59,7 @@
                 The Julia set is the series of fixed (repelling) points for the polynomial g(z) = z^2 + c where c is some complex number. By varying the value of c, different julia sets can be generated. 
             </p>
             <p>
-                This Julia set viewer uses escape time approximation (ETA) to generate the graph. See this pdf for more information. 
+                This Julia set viewer uses escape time approximation (ETA) to generate the graph. See <a href="Computational_Representations_of_Fractals.pdf" target="_blank"> this pdf </a> for more information. 
             </p>
 
             <p>
@@ -194,6 +194,25 @@ function colSelChange() {
 	}
 }
 
+function relMouseCoords(e){
+    var x;
+    var y;
+    if (e.pageX || e.pageY) {
+    	x = e.pageX;
+    	y = e.pageY;
+    }
+    else {
+    	x = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
+    	y = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+    }
+
+    x -= this.offsetLeft;
+    y -= this.offsetTop;
+
+    return {x:x, y:y}
+}
+HTMLCanvasElement.prototype.relMouseCoords = relMouseCoords;
+
 function colChange() {
 	colSelChange();
 }
@@ -205,8 +224,10 @@ function MouseDown(e) {
 	var juliaObj = document.getElementById("JuliaCanvas");
 	var ctx3 = juliaObj.getContext("2d");
 
-	mousePosx = e.x - $("#JuliaCanvas").offset().left - 250;
-	mousePosy = e.y - $("#JuliaCanvas").offset().top - 250;
+	coords = juliaObj.relMouseCoords(e);
+
+	mousePosx = coords.x - 250;
+	mousePosy = coords.y - 250;
 
 	imageData = ctx3.getImageData(0,0,500,500);
 }
@@ -217,8 +238,10 @@ function MouseMove(e) {
 		var juliaObj = document.getElementById("JuliaCanvas");
 		var ctx3 = juliaObj.getContext("2d");
 
-		var mouseX = e.x - $("#JuliaCanvas").offset().left - 250;
-		var mouseY = e.y - $("#JuliaCanvas").offset().top - 250;
+		coords = juliaObj.relMouseCoords(e);
+
+		mouseX = coords.x - 250;
+		mouseY = coords.y - 250;
 
 		var minX = mouseX < mousePosx ? mouseX : mousePosx;
 		var maxY = mouseY < mousePosy ? mouseY : mousePosy;
@@ -230,9 +253,11 @@ function MouseMove(e) {
 }
 
 function MouseUp(e) {
+	var juliaObj = document.getElementById("JuliaCanvas");
+	coords = juliaObj.relMouseCoords(e);
 
-	var mouseX = e.x - $("#JuliaCanvas").offset().left - 250;
-	var mouseY = e.y - $("#JuliaCanvas").offset().top - 250;
+	mouseX = coords.x - 250;
+	mouseY = coords.y- 250;
 	
 	//Going from mousePosx to
 

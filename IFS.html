@@ -54,7 +54,7 @@
                 Iterated Function Systems
             </h1>
             <p>
-                Iterated Function Systems (IFS) are created by repeatedely scaling, transforming, and rotating a shape to create self-similar shapes. These transformations are done by repeated application of transformation functions.
+                Iterated Function Systems (IFS) are created by repeatedely scaling, transforming, and rotating a shape to create self-similar shapes. These transformations are done by repeated application of transformation functions. For more information on the algorithm see <a href="Computational_Representations_of_Fractals.pdf" target="_blank"> this pdf </a>. 
             </p>
             <p>
                 The barnsley fern is a famous IFS. It is comprised of four functions, each with a probability of being utilized to create the next iteration of the shape. 
@@ -74,7 +74,7 @@
 	<div id="wrapper">
 
 		<div align="center" style="width:1200px; text-align:center; background-color: #FFFFFF;" >
-            <div style="float:left;width:460px; height:480px; margin: 0 20px 0 0; background-color: #FFFFFF; text-align:left;" class="content">
+            <div style="float:left;width:460px; height:540px; margin: 0 20px 0 0; background-color: #FFFFFF; text-align:left;" class="content">
 
             	<h1> Iterated Function Systems </h1>
             	</br>
@@ -99,20 +99,31 @@
 				</br>
 
 				Fractal Colour <input type="color" id="fractalColour" value ="#027A00" onchange="colChange()">
+				<button onclick="ZoomIn()" > Zoom In </button>
+				<button onclick="ZoomOut()" > Zoom Out </button>
+				<button onclick='ResetZoom()'> Zoom Reset </button>
+
+			</br> </br>
+
+				Left/Right Pan <input type="range" id="LRPan" min="-200" max="200" step ="5" oninput = "LRChange()" >
+
+				Up/Down Pan <input type="range" id="UDPan" min="-200" max="200" step ="5" oninput = "UDChange()" >
 
 				</br> </br>
 
-				<h2> Preset IFS </h2>	
+				<h2> Preset IFS (will auto zoom) </h2>	
 				<a href="javascript:CreateBarnsley()"> Barnsley Fern </a> </br>
 				<a href="javascript:CreateLeptosporangiate()"> Leptosporangiate Fern </a> </br>
 				<a href="javascript:CreateThelypteridaceae()"> Thelypteridaceae Fern </a> </br>
-				<a href="javascript:CreateCulcita()"> Culcita Fern </a>
+				<a href="javascript:CreateSierpinski()"> Sierpinski Triangle </a>
+
+
 
 				</div>
 		
-            <div style="float:left;width:500px; height:500px; background-color: #FFFFFF; text-align:left; padding-left:0px; padding-right:0px; padding-top:0px" class="content">
+            <div style="float:left;width:500px; height:560px; background-color: #FFFFFF; text-align:left; padding-left:0px; padding-right:0px; padding-top:0px" class="content">
 
-			<canvas id="mendelbrotCanvas" width="500" height="500" onmousedown="MouseDown(event)" onmousemove="MouseMove(event)" onmouseup="MouseUp(event)">
+			<canvas id="mendelbrotCanvas" width="500" height="560" onmousedown="MouseDown(event)" onmousemove="MouseMove(event)" onmouseup="MouseUp(event)">
 			Your browser does not support HTML5 Canvas.
 			</canvas>
 
@@ -134,39 +145,90 @@ var imageData;
 
 var maxIndex = 0;
 
+var LRScale = 60;
+var UDScale = 40;
 
-function CreateCulcita() {
+var LRShift = 0;
+var UDShift = 0;
+
+function UDChange() {
+	UDShift = parseFloat($("#UDPan").val());
+	colSelChange();
+}
+
+function LRChange() {
+	LRShift = parseFloat($("#LRPan").val());
+	colSelChange();
+}
+
+function ZoomIn() {
+	LRScale += 10;
+	UDScale += 10;
+
+	colSelChange();
+}
+
+function ZoomOut() {
+	LRScale -= 10;
+	UDScale -= 10;
+
+	colSelChange();
+}
+
+function ResetZoom() {
+	LRScale = 60;
+	UDScale = 40;
+	LRShift = 0;
+	UDShift = 0;
+
+	$("#LRPan").val(0);
+	$("#UDPan").val(0);
+
+	colSelChange();
+}
+
+
+function CreateSierpinski() {
 	document.getElementById('f1a').value = 0;
 	document.getElementById('f1b').value = 0;
 	document.getElementById('f1d').value = 0;
-	document.getElementById('f1e').value = 0.25;
+	document.getElementById('f1e').value = 0;
 	document.getElementById('f1c').value = 0;
-	document.getElementById('f1f').value = -0.14;
-	document.getElementById('f1P').value = 0.02;
+	document.getElementById('f1f').value = 0;
+	document.getElementById('f1P').value = 0;
 
-	document.getElementById('f2a').value = 0.85;
-	document.getElementById('f2b').value = 0.02;
-	document.getElementById('f2d').value = -0.02;
-	document.getElementById('f2e').value = 0.83;
-	document.getElementById('f2c').value = 0;
-	document.getElementById('f2f').value = 1;
-	document.getElementById('f2P').value = 0.84;
+	document.getElementById('f2a').value = 0.5;
+	document.getElementById('f2b').value = 0;
+	document.getElementById('f2d').value = 0;
+	document.getElementById('f2e').value = 0.5;
+	document.getElementById('f2c').value = 0.5;
+	document.getElementById('f2f').value = 0;
+	document.getElementById('f2P').value = 0.33;
 
-	document.getElementById('f3a').value = 0.09;
-	document.getElementById('f3b').value = -0.28;
-	document.getElementById('f3d').value = 0.3;
-	document.getElementById('f3e').value = 0.11;
-	document.getElementById('f3c').value = 0;
-	document.getElementById('f3f').value = 0.6;
-	document.getElementById('f3P').value = 0.07;
+	document.getElementById('f3a').value = 0.5;
+	document.getElementById('f3b').value = 0;
+	document.getElementById('f3d').value = 0;
+	document.getElementById('f3e').value = 0.5;
+	document.getElementById('f3c').value = 0.25;
+	document.getElementById('f3f').value = 0.5;
+	document.getElementById('f3P').value = 0.33;
 
-	document.getElementById('f4a').value = -0.09;
-	document.getElementById('f4b').value = 0.28;
-	document.getElementById('f4d').value = 0.3;
-	document.getElementById('f4e').value = 0.09;
+	document.getElementById('f4a').value = 0.5;
+	document.getElementById('f4b').value = 0;
+	document.getElementById('f4d').value = 0;
+	document.getElementById('f4e').value = 0.5;
 	document.getElementById('f4c').value = 0;
-	document.getElementById('f4f').value = 0.7;
-	document.getElementById('f4P').value = 0.07;
+	document.getElementById('f4f').value = 0;
+	document.getElementById('f4P').value = 0.34;
+
+	LRScale = 400;
+	UDScale = 400;
+
+	LRShift = -200;
+	UDShift = 0;
+
+	$("#LRPan").val(-200);
+	$("#UDPan").val(0);
 
 	colSelChange();
 }
@@ -204,6 +266,15 @@ function CreateThelypteridaceae() {
 	document.getElementById('f4f').value = 0.12;
 	document.getElementById('f4P').value = 0.07;
 
+	LRScale = 60;
+	UDScale = 50;
+
+	LRShift = 0;
+	UDShift = 0;
+
+	$("#LRPan").val(0);
+	$("#UDPan").val(0);
+
 	colSelChange();
 }
 
@@ -239,6 +310,15 @@ function CreateLeptosporangiate() {
 	document.getElementById('f4c').value = 0;
 	document.getElementById('f4f').value = 0.7;
 	document.getElementById('f4P').value = 0.07;
+
+	LRScale = 60;
+	UDScale = 60;
+
+	LRShift = 0;
+	UDShift = 0;
+
+	$("#LRPan").val(0);
+	$("#UDPan").val(0);
 
 	colSelChange();
 }
@@ -276,6 +356,15 @@ function CreateBarnsley() {
 	document.getElementById('f4f').value = 0.44;
 	document.getElementById('f4P').value = 0.07;
 
+	LRScale = 60;
+	UDScale = 40;
+
+	LRShift = 0;
+	UDShift = 0;
+
+	$("#LRPan").val(0);
+	$("#UDPan").val(0);
+
 	colSelChange();
 }
 
@@ -292,7 +381,7 @@ function colSelChange() {
 	ctx3.fillStyle = "#FFFFFF";
 	ctx3.fillRect(-250, -500, 500, 700);
 
-	barnsley(ctx3);
+	barnsley(ctx3, LRScale, UDScale);
 }
 
 function colChange() {
@@ -304,7 +393,7 @@ function colTextChange() {
 }
 
 function MouseDown(e) {
-	mouseDown = true;
+	/*mouseDown = true;
 	//Mouse coordinates relative to canvas
 
 	var mendelbrotObj = document.getElementById("mendelbrotCanvas");
@@ -313,11 +402,11 @@ function MouseDown(e) {
 	mousePosx = e.x - $("#mendelbrotCanvas").offset().left - 250;
 	mousePosy = e.y - $("#mendelbrotCanvas").offset().top - 250;
 
-	imageData = ctx3.getImageData(0,0,500,500);
+	imageData = ctx3.getImageData(0,0,500,500);*/
 }
 
 function MouseMove(e) {
-	if (mouseDown) {
+	/*if (mouseDown) {
 		//Draw a little box to show what's up
 		var mendelbrotObj = document.getElementById("mendelbrotCanvas");
 		var ctx3 = mendelbrotObj.getContext("2d");
@@ -331,12 +420,12 @@ function MouseMove(e) {
 		ctx3.strokeStyle = "red";
 		ctx3.putImageData(imageData, 0, 0);
 		ctx3.strokeRect(minX, maxY, Math.abs(mouseX - mousePosx), Math.abs(mouseY - mousePosy));
-	}
+	}*/
 }
 
 function MouseUp(e) {
 
-	var mouseX = e.x - $("#mendelbrotCanvas").offset().left - 250;
+	/*var mouseX = e.x - $("#mendelbrotCanvas").offset().left - 250;
 	var mouseY = e.y - $("#mendelbrotCanvas").offset().top - 250;
 	
 	//Going from mousePosx to
@@ -371,7 +460,7 @@ function MouseUp(e) {
 	xMax = newRightBound;
 
 	yMin = newBottomBound;
-	yMax = newUpBound;
+	yMax = newUpBound;*/
 }
 
 	mendelbrotObj = document.getElementById("mendelbrotCanvas");
@@ -481,7 +570,7 @@ function barnsley(ctx) {
     this.drawPoint = function (xn, yn) {
         self.x = xn;
         self.y = yn;
-        ctx.fillRect(xn*60, -yn*40, 1, 1);
+        ctx.fillRect( Math.floor(xn*LRScale + LRShift ), Math.floor(-yn * UDScale - UDShift ), 1, 1);
     }
 
     this.main();
